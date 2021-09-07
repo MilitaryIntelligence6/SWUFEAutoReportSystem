@@ -2,19 +2,22 @@
     <string name="app_name">西财一键溜了</string>
     <string name="one_key_to_report">一键报备出校</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="report_submit_url">https://qxj.iswufe.info/QJ/XSBBList</string>
     <string name="swufe_auth_url">https://authserver.swufe.edu.cn/authserver/login?service=http%3a%2f%2fqxj.iswufe.info%2fQJ%2fXSBBList</string>
     <string name="swufe_auth_keyword">authserver</string>
     <string name="sure">确定</string>
-    <string name="swufe_login_page_prompt">首次使用请先登录, 最好点击一周内免登录, 免得天天登, 累得瓜西流了\n如果是不是第一次出现这个弹窗, 可能是你密码输错了, 我懒得再做判断了, 又不是不能用</string>
+    <string name="swufe_login_page_prompt">首次使用请先登录, 最好点击一周内免登录, 免得天天登, 累得瓜西流了</string>
     <string name="swufe_login_snackbar_prompt">请先登录, 最好点击一周内免登录</string>
     <string name="tips">温馨提示</string>
+    <string name="swufe_reenter_login_page_prompt">这应该不是您第一次遇到登录界面, 很可能是密码输错的原因, 您可以修改密码再试试</string>
+    <string name="activity_param_key">reportInfo</string>
+    <string name="swufe_username_literal">西财用户名</string>
+    <string name="swufe_password_literal">西财密码</string>
+    <string name="custom_destination">自定义目的地</string>
+    <string name="custom_transportation">自定义交通</string>
+    <string name="custom_reason">自定义理由</string>
+    <string name="default_destination_hint">东门;</string>
+    <string name="default_transportation_hint">步行恰个饭;</string>
+    <string name="default_reason_hint">学好 Java C++, 走遍天下都不怕;\n掌握计网与算法, 面完腾讯也称霸;</string>
 
 </resources>

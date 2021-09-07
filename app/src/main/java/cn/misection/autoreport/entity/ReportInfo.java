@@ -21,12 +21,12 @@ public class ReportInfo implements Serializable {
     /**
      * 外出时间;
      */
-    private String goOutTime;
+    private String startTime;
 
     /**
      * 返校时间;
      */
-    private String backTime;
+    private String endTime;
 
     /**
      * 外出时长;
@@ -52,15 +52,15 @@ public class ReportInfo implements Serializable {
     }
 
     public ReportInfo(EnumCampus campus,
-                      String goOutTime,
-                      String backTime,
+                      String startTime,
+                      String endTime,
                       String duration,
                       String destination,
                       String transportation,
                       String reason) {
         this.campus = campus;
-        this.goOutTime = goOutTime;
-        this.backTime = backTime;
+        this.startTime = startTime;
+        this.endTime = endTime;
         this.duration = duration;
         this.destination = destination;
         this.transportation = transportation;
@@ -75,20 +75,20 @@ public class ReportInfo implements Serializable {
         this.campus = campus;
     }
 
-    public String getGoOutTime() {
-        return goOutTime;
+    public String getStartTime() {
+        return startTime;
     }
 
-    public void setGoOutTime(String goOutTime) {
-        this.goOutTime = goOutTime;
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
     }
 
-    public String getBackTime() {
-        return backTime;
+    public String getEndTime() {
+        return endTime;
     }
 
-    public void setBackTime(String backTime) {
-        this.backTime = backTime;
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
     }
 
     public String getDuration() {

@@ -14,12 +14,17 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import java.io.Serializable;
+
 import cn.misection.autoreport.BuildConfig;
 import cn.misection.autoreport.R;
 import cn.misection.autoreport.constant.JavaScriptPool;
 import cn.misection.autoreport.databinding.ActivityWebViewBinding;
 import cn.misection.util.oututil.system.AppSystem;
 
+/**
+ * @author Administrator
+ */
 public class WebViewActivity extends AppCompatActivity {
 
     private ActivityWebViewBinding mBinding;
@@ -28,6 +33,11 @@ public class WebViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_view);
+        if (BuildConfig.DEBUG) {
+            Bundle extras = getIntent().getExtras();
+            Serializable serializable = extras.getSerializable(getString(R.string.activity_param_key));
+            AppSystem.out.printt(this, String.valueOf(serializable));
+        }
         init();
     }
 
@@ -56,16 +66,27 @@ public class WebViewActivity extends AppCompatActivity {
 
         //如果不设置WebViewClient，请求会跳转系统浏览器
         mBinding.reportWebView.setWebViewClient(new WebViewClient() {
+
+            private int enterCount = 0;
+
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
+                ++enterCount;
                 if (view.getUrl().equals(WebViewActivity.this.getString(R.string.report_submit_url))) {
                     if (BuildConfig.DEBUG) {
                         AppSystem.out.printt(WebViewActivity.this, "report branch");
                     }
                     evalSelectJs();
                 } else if (view.getUrl().contains(WebViewActivity.this.getString(R.string.swufe_auth_keyword))) {
-                    alertFirstTimeLogin();
+                    switch (enterCount) {
+                        case 1:
+                            alertDefault(WebViewActivity.this.getString(R.string.swufe_login_page_prompt));
+                            break;
+                        default:
+                            alertDefault(WebViewActivity.this.getString(R.string.swufe_reenter_login_page_prompt));
+                            break;
+                    }
                 } else {
                     if (BuildConfig.DEBUG) {
                         AppSystem.out.printt(WebViewActivity.this, "else branch");
@@ -114,11 +135,11 @@ public class WebViewActivity extends AppCompatActivity {
         mBinding.reportWebView.loadUrl(getString(R.string.report_submit_url));
     }
 
-    private void alertFirstTimeLogin() {
+    private void alertDefault(String msg) {
         new AlertDialog.Builder(WebViewActivity.this)
                 .setTitle(getString(R.string.tips))
-                .setMessage(getString(R.string.swufe_login_page_prompt))
-                .setIcon(R.mipmap.ic_launcher)
+                .setMessage(msg)
+                .setIcon(R.mipmap.ic_my_launcher_round)
                 .setPositiveButton(getString(R.string.sure),
                         (dialog, which) -> AppSystem.out.prints(mBinding.reportWebView,
                                 getString(R.string.swufe_login_snackbar_prompt)))

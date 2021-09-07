@@ -12,6 +12,9 @@ import cn.misection.autoreport.databinding.ActivityMainBinding;
 import cn.misection.autoreport.entity.ReportInfo;
 import cn.misection.util.oututil.system.AppSystem;
 
+/**
+ * @author Administrator
+ */
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding mBinding;
@@ -35,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onSubmitButtonClicked(View view) {
         Intent intent = new Intent(this, WebViewActivity.class);
-        intent.putExtra("reportInfo", new ReportInfo());
+        intent.putExtra(getString(R.string.activity_param_key), new ReportInfo());
         startActivity(intent);
     }
 }
