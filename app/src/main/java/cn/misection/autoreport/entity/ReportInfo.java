@@ -48,10 +48,10 @@ public class ReportInfo implements Serializable {
      */
     private String reason;
 
-    public ReportInfo() {
+    private ReportInfo() {
     }
 
-    public ReportInfo(EnumCampus campus,
+    private ReportInfo(EnumCampus campus,
                       String startTime,
                       String endTime,
                       String duration,
@@ -65,6 +65,92 @@ public class ReportInfo implements Serializable {
         this.destination = destination;
         this.transportation = transportation;
         this.reason = reason;
+    }
+
+    public static class Builder {
+        /**
+         * 校区;
+         */
+        private EnumCampus campus;
+
+        /**
+         * 外出时间;
+         */
+        private String startTime;
+
+        /**
+         * 返校时间;
+         */
+        private String endTime;
+
+        /**
+         * 外出时长;
+         */
+        private String duration;
+
+        /**
+         * 目的地;
+         */
+        private String destination;
+
+        /**
+         * 交通方式;
+         */
+        private String transportation;
+
+        /**
+         * 外出理由;
+         */
+        private String reason;
+
+        public Builder() {
+        }
+
+        public ReportInfo create() {
+            ReportInfo reportInfo = new ReportInfo();
+            reportInfo.campus = this.campus;
+            reportInfo.startTime = this.startTime;
+            reportInfo.endTime = this.endTime;
+            reportInfo.duration = this.duration;
+            reportInfo.transportation = this.transportation;
+            reportInfo.reason = this.reason;
+            return reportInfo;
+        }
+
+        public Builder setCampus(EnumCampus campus) {
+            this.campus = campus;
+            return this;
+        }
+
+        public Builder setStartTime(String startTime) {
+            this.startTime = startTime;
+            return this;
+        }
+
+        public Builder setEndTime(String endTime) {
+            this.endTime = endTime;
+            return this;
+        }
+
+        public Builder setDuration(String duration) {
+            this.duration = duration;
+            return this;
+        }
+
+        public Builder setDestination(String destination) {
+            this.destination = destination;
+            return this;
+        }
+
+        public Builder setTransportation(String transportation) {
+            this.transportation = transportation;
+            return this;
+        }
+
+        public Builder setReason(String reason) {
+            this.reason = reason;
+            return this;
+        }
     }
 
     public EnumCampus getCampus() {

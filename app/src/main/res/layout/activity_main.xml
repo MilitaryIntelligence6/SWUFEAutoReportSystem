@@ -61,7 +61,34 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="0.25"
-                        android:text="@string/swufe_password_literal" />
+                        android:text="@string/swufe_username_literal" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.75" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    >
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="校区单选框" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.25"
+                        android:text="@string/start_time_literal" />
 
                 <TimePicker
                         android:id="@+id/start_time_picker"
@@ -73,13 +100,13 @@
 
             <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
-                    android:layout_height="50dp">
+                    android:layout_height="100dp">
 
                 <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="0.25"
-                        android:text="@string/swufe_password_literal" />
+                        android:text="@string/end_time_literal" />
 
                 <TimePicker
                         android:id="@+id/end_time_picker"
@@ -147,6 +174,17 @@
                         />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="是否直接报备打钩框" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.appcompat.widget.AppCompatButton
@@ -159,7 +197,5 @@
                 app:layout_constraintRight_toRightOf="parent"
                 android:onClick="onSubmitButtonClicked"
                 />
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
