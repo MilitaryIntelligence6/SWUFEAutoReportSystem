@@ -20,6 +20,8 @@ import cn.misection.autoreport.BuildConfig;
 import cn.misection.autoreport.R;
 import cn.misection.autoreport.constant.JavaScriptPool;
 import cn.misection.autoreport.databinding.ActivityWebViewBinding;
+import cn.misection.autoreport.entity.ReportInfo;
+import cn.misection.autoreport.util.jsutil.InfoToJsCompiler;
 import cn.misection.util.oututil.system.AppSystem;
 
 /**
@@ -29,26 +31,29 @@ public class WebViewActivity extends AppCompatActivity {
 
     private ActivityWebViewBinding mBinding;
 
+    private String mScript;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_view);
-        if (BuildConfig.DEBUG) {
-            Bundle extras = getIntent().getExtras();
-            Serializable serializable = extras.getSerializable(getString(R.string.activity_param_key));
-            AppSystem.out.printt(this, String.valueOf(serializable));
-        }
         init();
     }
 
     private void init() {
         initBinding();
+        initScript();
         initWebViewSetting();
         initPage();
     }
 
     private void initBinding() {
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_web_view);
+    }
+
+    private void initScript() {
+        ReportInfo reportInfo = (ReportInfo) getIntent().getExtras().getSerializable(getString(R.string.activity_param_key));
+        mScript = new InfoToJsCompiler(reportInfo).getScript();
     }
 
     private void initWebViewSetting() {
@@ -149,7 +154,7 @@ public class WebViewActivity extends AppCompatActivity {
 
     private void evalSelectJs() {
         mBinding.reportWebView.evaluateJavascript(
-                JavaScriptPool.DEFAULT_TEST_JS,
+                mScript,
                 value -> {
                     if (BuildConfig.DEBUG) {
                         AppSystem.out.printt(WebViewActivity.this, value);

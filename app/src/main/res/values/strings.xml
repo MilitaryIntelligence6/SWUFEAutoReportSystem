@@ -16,9 +16,12 @@
     <string name="custom_destination">自定义目的地</string>
     <string name="custom_transportation">自定义交通</string>
     <string name="custom_reason">自定义理由</string>
+<!--    default hint value-->
     <string name="default_destination_hint">东门;</string>
-    <string name="default_transportation_hint">步行恰个饭;</string>
-    <string name="default_reason_hint">学好 Java C++, 走遍天下都不怕;\n掌握计网与算法, 面完腾讯也称霸;</string>
+    <string name="default_transportation_hint">步行, 简简单单恰个饭;</string>
+    <string name="default_reason_hint">学好 Java C++, 走遍天下都不怕;\\n掌握计网与算法, 面完腾讯也称霸;</string>
+    <!--end default hint value-->
+
     <string name="start_time_literal">开始时间</string>
     <string name="end_time_literal">结束时间</string>
     <string name="empty" />

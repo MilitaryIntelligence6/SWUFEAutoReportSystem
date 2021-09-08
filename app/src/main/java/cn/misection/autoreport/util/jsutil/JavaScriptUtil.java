@@ -10,10 +10,10 @@ package cn.misection.autoreport.util.jsutil;
 public class JavaScriptUtil {
 
     private JavaScriptUtil() {
-        throw new RuntimeException(String.format("here are no %s instance for you", getClass().getName()));
+        throw new RuntimeException(String.format("here are no %s instance for you!", getClass().getName()));
     }
 
     public static String decoratedWithJsUrl(String jsScript) {
-        return String.format("javascript:(function(){%s})()", jsScript);
+        return String.format("javascript:(function(){\n%s})()", jsScript);
     }
 }
