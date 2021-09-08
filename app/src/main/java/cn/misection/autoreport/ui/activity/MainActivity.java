@@ -1,11 +1,16 @@
 package cn.misection.autoreport.ui.activity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+
+import com.xuexiang.xui.XUI;
 
 import java.util.Calendar;
 
@@ -13,6 +18,7 @@ import cn.misection.autoreport.R;
 import cn.misection.autoreport.constant.EnumCampus;
 import cn.misection.autoreport.databinding.ActivityMainBinding;
 import cn.misection.autoreport.entity.ReportInfo;
+import cn.misection.autoreport.entity.SwufeUser;
 
 /**
  * @author Administrator
@@ -21,23 +27,45 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding mBinding;
 
+    private SwufeUser user;
+
     private ReportInfo info;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        XUI.initTheme(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        flushStartTime();
+    }
+
     private void init() {
         initBinding();
-        initStartTimePicker();
-        initEndTimePicker();
+        initUI();
+        initData();
+        initActionListener();
     }
 
     private void initBinding() {
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+    }
+
+    private void initUI() {
+        initStartTimePicker();
+        initEndTimePicker();
+        initRadioButtonState();
+    }
+
+    private void initData() {
+        user = SwufeUser.getInstance();
+        info = new ReportInfo.Builder().create();
     }
 
     private void initStartTimePicker() {
@@ -50,6 +78,75 @@ public class MainActivity extends AppCompatActivity {
         flushEndTime();
     }
 
+    private void initRadioButtonState() {
+        mBinding.campusLiulinRadioButton.setChecked(true);
+    }
+
+    private void initActionListener() {
+        mBinding.usernameEt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        mBinding.passwordEt.addTextChangedListener(
+                new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable s) {
+                    }
+                }
+        );
+
+        mBinding.campusRadioGroup.setOnCheckedChangeListener(
+                (group, checkedId) -> {
+                    switch (checkedId) {
+                        case R.id.campus_liulin_radio_button:
+                            info.setCampus(EnumCampus.LIU_LIN);
+                            break;
+                        case R.id.campus_guanghua_radio_button:
+                            info.setCampus(EnumCampus.GUANG_HUA);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+        );
+
+        mBinding.startTimePicker.setOnTimeChangedListener(
+                (view, hourOfDay, minute) -> {
+                    info.setStartTime(String.format("%02d:%02d", hourOfDay, minute));
+                }
+        );
+
+        mBinding.endTimePicker.setOnTimeChangedListener(
+                (view, hourOfDay, minute) -> {
+                    info.setEndTime(String.format("%02d:%02d", hourOfDay, minute));
+                }
+        );
+    }
+
+    @SuppressLint("Range")
     private void flushStartTime() {
         Calendar calendar = Calendar.getInstance();
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
@@ -57,6 +154,9 @@ public class MainActivity extends AppCompatActivity {
         if (minute == -1) {
             minute += 60;
             --hour;
+            if (hour < 0) {
+                hour += 24;
+            }
         }
         mBinding.startTimePicker.setHour(hour);
         mBinding.startTimePicker.setMinute(minute);

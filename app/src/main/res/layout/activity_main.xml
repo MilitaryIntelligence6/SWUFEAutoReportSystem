@@ -33,7 +33,9 @@
                         android:id="@+id/username_et"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="0.75" />
+                        android:layout_weight="0.75"
+                        android:hint="@string/swufe_username_password_hint"
+                        />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <androidx.appcompat.widget.LinearLayoutCompat
@@ -50,33 +52,41 @@
                         android:id="@+id/password_et"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="0.75" />
-            </androidx.appcompat.widget.LinearLayoutCompat>
-
-            <androidx.appcompat.widget.LinearLayoutCompat
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp">
-
-                <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.25"
-                        android:text="@string/swufe_username_literal" />
-
-                <androidx.appcompat.widget.AppCompatEditText
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.75" />
+                        android:layout_weight="0.75"
+                        android:hint="@string/swufe_username_password_hint" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     >
+
                 <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:text="校区单选框" />
+                        android:layout_weight="0.25"
+                        android:text="@string/campus_literal" />
+
+                <RadioGroup
+                        android:id="@+id/campus_radio_group"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.75"
+                        android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                            android:id="@+id/campus_liulin_radio_button"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@string/campus_liulin" />
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                            android:id="@+id/campus_guanghua_radio_button"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@string/campus_guanghua" />
+                </RadioGroup>
             </androidx.appcompat.widget.LinearLayoutCompat>
 
 

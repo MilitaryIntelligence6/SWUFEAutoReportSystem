@@ -29,4 +29,11 @@ public enum EnumCampus {
     public String getChineseLiteral() {
         return chineseLiteral;
     }
+
+    public static EnumCampus selectByOrdinal(int ordinal) {
+        if (ordinal < 0 || ordinal > values().length) {
+            throw new IllegalArgumentException("select ordinal only can be in the range of (0, values().length)");
+        }
+        return values()[ordinal];
+    }
 }
