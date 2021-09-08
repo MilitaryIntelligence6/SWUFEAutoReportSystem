@@ -5,6 +5,14 @@
 
     <data>
 
+        <variable
+                name="user"
+                type="cn.misection.autoreport.entity.SwufeUser" />
+
+        <variable
+                name="reportInfo"
+                type="cn.misection.autoreport.entity.ReportInfo" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,7 +22,9 @@
 
         <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
 
             <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
@@ -25,16 +35,18 @@
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="match_parent"
-                        android:layout_height="10dp" />
+                        android:layout_height="5dp" />
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="match_parent"
-                        android:layout_height="30dp">
+                        android:layout_height="30dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp">
 
                     <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="0.25"
+                            android:layout_weight="0.3"
                             android:gravity="center"
                             android:text="@string/swufe_username_literal" />
 
@@ -42,25 +54,25 @@
                             android:id="@+id/username_et"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="0.75"
+                            android:layout_weight="0.7"
                             android:background="@drawable/edittext_round_bg"
                             android:hint="@string/swufe_username_password_hint"
                             android:inputType="textMultiLine"
-                            android:maxLines="20" />
+                            android:maxLines="20"
+                            android:text="@{user.getUsername()}" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="match_parent"
-                        android:layout_height="10dp" />
+                        android:layout_height="30dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp">
 
-                <androidx.appcompat.widget.LinearLayoutCompat
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp">
 
                     <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="0.25"
+                            android:layout_weight="0.3"
                             android:gravity="center"
                             android:text="@string/swufe_password_literal" />
 
@@ -68,7 +80,7 @@
                             android:id="@+id/password_et"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="0.75"
+                            android:layout_weight="0.7"
                             android:background="@drawable/edittext_round_bg"
                             android:hint="@string/swufe_username_password_hint"
                             android:inputType="textMultiLine"
@@ -77,16 +89,14 @@
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="match_parent"
-                        android:layout_height="10dp" />
-
-                <androidx.appcompat.widget.LinearLayoutCompat
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp">
+                        android:layout_height="30dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp">
 
                     <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="0.25"
+                            android:layout_weight="0.3"
                             android:gravity="center"
                             android:text="@string/campus_literal" />
 
@@ -94,7 +104,7 @@
                             android:id="@+id/campus_radio_group"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="0.75"
+                            android:layout_weight="0.7"
                             android:orientation="horizontal">
 
                         <androidx.appcompat.widget.AppCompatRadioButton
@@ -115,16 +125,14 @@
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="match_parent"
-                        android:layout_height="10dp" />
-
-                <androidx.appcompat.widget.LinearLayoutCompat
-                        android:layout_width="match_parent"
-                        android:layout_height="80dp">
+                        android:layout_height="80dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp">
 
                     <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="0.25"
+                            android:layout_weight="0.3"
                             android:gravity="center"
                             android:text="@string/start_time_literal" />
 
@@ -132,23 +140,22 @@
                             android:id="@+id/start_time_picker"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="0.75"
+                            android:layout_weight="0.7"
                             android:background="@drawable/edittext_round_bg"
                             android:timePickerMode="spinner" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
-                <androidx.appcompat.widget.LinearLayoutCompat
-                        android:layout_width="match_parent"
-                        android:layout_height="10dp" />
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="match_parent"
-                        android:layout_height="80dp">
+                        android:layout_height="80dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp">
 
                     <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="0.25"
+                            android:layout_weight="0.3"
                             android:gravity="center"
                             android:text="@string/end_time_literal" />
 
@@ -156,23 +163,21 @@
                             android:id="@+id/end_time_picker"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="0.75"
+                            android:layout_weight="0.7"
                             android:background="@drawable/edittext_round_bg"
                             android:timePickerMode="spinner" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="match_parent"
-                        android:layout_height="10dp" />
-
-                <androidx.appcompat.widget.LinearLayoutCompat
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp">
+                        android:layout_height="30dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp">
 
                     <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="0.25"
+                            android:layout_weight="0.3"
                             android:gravity="center"
                             android:text="@string/custom_destination" />
 
@@ -180,7 +185,7 @@
                             android:id="@+id/custom_destination_et"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="0.75"
+                            android:layout_weight="0.7"
                             android:background="@drawable/edittext_round_bg"
                             android:hint="@string/default_destination_hint"
                             android:inputType="textMultiLine"
@@ -189,16 +194,14 @@
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="match_parent"
-                        android:layout_height="10dp" />
-
-                <androidx.appcompat.widget.LinearLayoutCompat
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp">
+                        android:layout_height="30dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp">
 
                     <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="0.25"
+                            android:layout_weight="0.3"
                             android:gravity="center"
                             android:text="@string/custom_transportation" />
 
@@ -206,7 +209,7 @@
                             android:id="@+id/custom_transportation_et"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="0.75"
+                            android:layout_weight="0.7"
                             android:background="@drawable/edittext_round_bg"
                             android:hint="@string/default_transportation_hint"
                             android:inputType="textMultiLine"
@@ -216,16 +219,14 @@
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="match_parent"
-                        android:layout_height="10dp" />
-
-                <androidx.appcompat.widget.LinearLayoutCompat
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp">
+                        android:layout_height="60dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp">
 
                     <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="0.25"
+                            android:layout_weight="0.3"
                             android:gravity="center"
                             android:text="@string/custom_reason" />
 
@@ -233,7 +234,7 @@
                             android:id="@+id/custom_reason_et"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="0.75"
+                            android:layout_weight="0.7"
                             android:background="@drawable/edittext_round_bg"
                             android:hint="@string/default_reason_hint"
                             android:inputType="textMultiLine"
@@ -242,11 +243,9 @@
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="match_parent"
-                        android:layout_height="10dp" />
-
-                <androidx.appcompat.widget.LinearLayoutCompat
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp">
+                        android:layout_height="30dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp">
 
                     <androidx.appcompat.widget.AppCompatCheckBox
                             android:layout_width="30dp"

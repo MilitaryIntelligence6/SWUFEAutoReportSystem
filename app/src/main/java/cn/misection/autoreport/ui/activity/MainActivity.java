@@ -47,14 +47,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void init() {
+        initData();
         initBinding();
         initUI();
-        initData();
         initActionListener();
     }
 
     private void initBinding() {
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        mBinding.setReportInfo(info);
+        mBinding.setUser(user);
     }
 
     private void initUI() {
@@ -114,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void afterTextChanged(Editable s) {
+                        user.setPassword(String.valueOf(s));
                     }
                 }
         );
