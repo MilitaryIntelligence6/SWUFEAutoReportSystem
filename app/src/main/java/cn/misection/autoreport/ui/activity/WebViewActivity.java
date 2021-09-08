@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import java.io.Serializable;
+import java.util.List;
 
 import cn.misection.autoreport.BuildConfig;
 import cn.misection.autoreport.R;
@@ -31,8 +32,6 @@ public class WebViewActivity extends AppCompatActivity {
 
     private ActivityWebViewBinding mBinding;
 
-    private String mScript;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,18 +41,12 @@ public class WebViewActivity extends AppCompatActivity {
 
     private void init() {
         initBinding();
-        initScript();
         initWebViewSetting();
         initPage();
     }
 
     private void initBinding() {
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_web_view);
-    }
-
-    private void initScript() {
-        ReportInfo reportInfo = (ReportInfo) getIntent().getExtras().getSerializable(getString(R.string.activity_param_key));
-        mScript = new InfoToJsCompiler(reportInfo).getScript();
     }
 
     private void initWebViewSetting() {
@@ -153,13 +146,10 @@ public class WebViewActivity extends AppCompatActivity {
     }
 
     private void evalSelectJs() {
-        mBinding.reportWebView.evaluateJavascript(
-                mScript,
-                value -> {
-                    if (BuildConfig.DEBUG) {
-                        AppSystem.out.printt(WebViewActivity.this, value);
-                    }
-                }
-        );
+        ReportInfo reportInfo = (ReportInfo) getIntent().getExtras().getSerializable(getString(R.string.activity_param_key));
+        List<String> scriptList = new InfoToJsCompiler(reportInfo).getScriptList();
+        for (String script : scriptList) {
+            mBinding.reportWebView.evaluateJavascript(script, null);
+        }
     }
 }

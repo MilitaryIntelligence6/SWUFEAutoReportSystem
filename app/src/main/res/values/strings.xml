@@ -19,7 +19,7 @@
 <!--    default hint value-->
     <string name="default_destination_hint">东门;</string>
     <string name="default_transportation_hint">步行, 简简单单恰个饭;</string>
-    <string name="default_reason_hint">学好 Java C++, 走遍天下都不怕;\\n掌握计网与算法, 面完腾讯也称霸;</string>
+    <string name="default_reason_hint">学好 Java C++, 走遍天下都不怕;\\n掌握计网与算法, 面罢腾讯也称霸;</string>
     <!--end default hint value-->
 
     <string name="start_time_literal">开始时间</string>

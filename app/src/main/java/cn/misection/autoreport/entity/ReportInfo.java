@@ -112,6 +112,7 @@ public class ReportInfo implements Serializable {
             reportInfo.startTime = this.startTime;
             reportInfo.endTime = this.endTime;
             reportInfo.duration = this.duration;
+            reportInfo.destination = this.destination;
             reportInfo.transportation = this.transportation;
             reportInfo.reason = this.reason;
             return reportInfo;

@@ -1,8 +1,8 @@
 package cn.misection.autoreport.util.jsutil;
 
-import android.util.Log;
+import java.util.ArrayList;
+import java.util.List;
 
-import cn.misection.autoreport.BuildConfig;
 import cn.misection.autoreport.entity.ReportInfo;
 
 /**
@@ -16,7 +16,7 @@ public class InfoToJsCompiler {
 
     private ReportInfo info;
 
-    private String script;
+    private List<String> scriptList;
 
     public InfoToJsCompiler(ReportInfo info) {
         this.info = info;
@@ -24,19 +24,13 @@ public class InfoToJsCompiler {
     }
 
     private void init() {
-        script = JavaScriptUtil.decoratedWithJsUrl(
-                new StringBuilder()
-                        .append(documentSetElementByIdIntSelectedIndex("szxq", String.valueOf(info.getCampus().ordinal())))
-                        .append(documentSetElementByIdStringValue("sbDate", info.getStartTime()))
-                        .append(documentSetElementByIdStringValue("edDate", info.getEndTime()))
-                        .append(documentSetElementByIdStringValue("qjmdd", info.getDestination()))
-                        .append(documentSetElementByIdStringValue("qjxc", info.getTransportation()))
-                        .append(documentSetElementByIdStringValue("qjyy", info.getReason()))
-                        .toString()
-        );
-        if (BuildConfig.DEBUG) {
-            Log.e(getClass().getName(), "script == " + script);
-        }
+        scriptList = new ArrayList<>();
+        scriptList.add(documentSetElementByIdIntSelectedIndex("szxq", String.valueOf(info.getCampus().ordinal())));
+        scriptList.add(documentSetElementByIdStringValue("sbDate", info.getStartTime()));
+        scriptList.add(documentSetElementByIdStringValue("edDate", info.getEndTime()));
+        scriptList.add(documentSetElementByIdStringValue("qjmdd", info.getDestination()));
+        scriptList.add(documentSetElementByIdStringValue("qjxc", info.getTransportation()));
+        scriptList.add(documentSetElementByIdStringValue("qjyy", info.getReason()));
     }
 
     private String documentSetElementByIdIntSelectedIndex(String id, String value) {
@@ -52,7 +46,7 @@ public class InfoToJsCompiler {
                 id, value);
     }
 
-    public String getScript() {
-        return script;
+    public List<String> getScriptList() {
+        return scriptList;
     }
 }
