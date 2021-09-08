@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-
+                user.setUsername(String.valueOf(s));
             }
         });
 
@@ -147,6 +147,57 @@ public class MainActivity extends AppCompatActivity {
                     info.setEndTime(String.format("%02d:%02d", hourOfDay, minute));
                 }
         );
+
+        mBinding.customDestinationEt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                info.setDestination(String.valueOf(s));
+            }
+        });
+
+        mBinding.customTransportationEt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                info.setTransportation(String.valueOf(s));
+            }
+        });
+
+        mBinding.customReasonEt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                info.setReason(String.valueOf(s));
+            }
+        });
     }
 
     @SuppressLint("Range")
