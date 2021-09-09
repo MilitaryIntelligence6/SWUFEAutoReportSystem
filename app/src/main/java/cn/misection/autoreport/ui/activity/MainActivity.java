@@ -201,7 +201,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    @SuppressLint("Range")
     private void flushStartTimePicker() {
         HourMinuteUnit unit = HourMinuteUnit.timePrevMinutesUnit(1);
         mBinding.startTimePicker.setHour(unit.getHourOfDay());
@@ -215,33 +214,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onSubmitButtonClicked(View view) {
-//        Campus campus = Campus.LIU_LIN;
-//        String startTimeString = String.format("%s:%s",
-//                mBinding.startTimePicker.getHour(),
-//                mBinding.startTimePicker.getMinute());
-//        String endTimeString = String.format("%s:%s",
-//                mBinding.endTimePicker.getHour(),
-//                mBinding.endTimePicker.getMinute());
-//        String destination = String.valueOf(mBinding.customDestinationEt.getText());
-//        String transportation = String.valueOf(mBinding.customTransportationEt.getText());
-//        String reason = String.valueOf(mBinding.customReasonEt.getText());
-//        if (destination == null || destination.equals(ConstString.EMPTY.value())) {
-//            destination = getString(R.string.default_destination_hint);
-//        }
-//        if (transportation == null || transportation.equals(ConstString.EMPTY.value())) {
-//            transportation = getString(R.string.default_transportation_hint);
-//        }
-//        if (reason == null || reason.equals(ConstString.EMPTY.value())) {
-//            reason = getString(R.string.default_reason_hint);
-//        }
-//        ReportInfo reportInfo = new ReportInfo.Builder()
-//                .setCampus(campus)
-//                .setStartTime(startTimeString)
-//                .setEndTime(endTimeString)
-//                .setDestination(destination)
-//                .setTransportation(transportation)
-//                .setReason(reason)
-//                .create();
         if (reportInfo.getCampus() == null) {
             reportInfo.setCampus(Campus.LIU_LIN);
         }
