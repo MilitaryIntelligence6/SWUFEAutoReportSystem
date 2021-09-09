@@ -1,11 +1,11 @@
 package cn.misection.autoreport.ui.activity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.RadioGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -13,12 +13,12 @@ import androidx.databinding.DataBindingUtil;
 import com.xuexiang.xui.XUI;
 
 import cn.misection.autoreport.R;
-import cn.misection.autoreport.constant.ConstString;
 import cn.misection.autoreport.constant.Campus;
 import cn.misection.autoreport.constant.IntentParam;
 import cn.misection.autoreport.databinding.ActivityMainBinding;
 import cn.misection.autoreport.entity.ReportInfo;
 import cn.misection.autoreport.entity.SwufeUser;
+import cn.misection.autoreport.util.stringutil.StringUtil;
 import cn.misection.autoreport.util.timeutil.HourMinuteUnit;
 
 /**
@@ -28,9 +28,9 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding mBinding;
 
-    private SwufeUser user;
+    private SwufeUser mUser;
 
-    private ReportInfo reportInfo;
+    private ReportInfo mReportInfo;
 
 
     @Override
@@ -56,8 +56,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void initBinding() {
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        mBinding.setReportInfo(reportInfo);
-        mBinding.setUser(user);
+        mBinding.setReportInfo(mReportInfo);
+        mBinding.setUser(mUser);
     }
 
     private void initUI() {
@@ -67,8 +67,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initData() {
-        user = SwufeUser.getInstance();
-        reportInfo = new ReportInfo.Builder().create();
+        mUser = SwufeUser.getInstance();
+        mReportInfo = new ReportInfo.Builder().create();
     }
 
     private void initStartTimePicker() {
@@ -83,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initRadioButtonState() {
         mBinding.campusLiulinRadioButton.setChecked(true);
+        mBinding.defaultStartTimeOneminagoRadioButton.setChecked(true);
     }
 
     private void initActionListener() {
@@ -99,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                user.setUsername(String.valueOf(s));
+                mUser.setUsername(String.valueOf(s));
             }
         });
 
@@ -117,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void afterTextChanged(Editable s) {
-                        user.setPassword(String.valueOf(s));
+                        mUser.setPassword(String.valueOf(s));
                     }
                 }
         );
@@ -126,10 +127,10 @@ public class MainActivity extends AppCompatActivity {
                 (group, checkedId) -> {
                     switch (checkedId) {
                         case R.id.campus_liulin_radio_button:
-                            reportInfo.setCampus(Campus.LIU_LIN);
+                            mReportInfo.setCampus(Campus.LIU_LIN);
                             break;
                         case R.id.campus_guanghua_radio_button:
-                            reportInfo.setCampus(Campus.GUANG_HUA);
+                            mReportInfo.setCampus(Campus.GUANG_HUA);
                             break;
                         default:
                             break;
@@ -137,15 +138,48 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
 
+        mBinding.startTimeRadioGroup.setOnCheckedChangeListener(
+                (group, checkedId) -> {
+                    mReportInfo.setStartTime(HourMinuteUnit.timePrevMinutesUnit(1).toFormatString());
+                    switch (checkedId) {
+                        case R.id.default_start_time_oneminago_radio_button:
+                            mBinding.customStartTimeLayout.setVisibility(View.GONE);
+                            break;
+                        case R.id.start_time_show_custom_radio_button:
+                            mBinding.customStartTimeLayout.setVisibility(View.VISIBLE);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+        );
+
+        mBinding.endTimeRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                mReportInfo.setEndTime("22:55");
+                switch (checkedId) {
+                    case R.id.default_end_time_2255_radio_button:
+                        mBinding.customEndTimeLayout.setVisibility(View.GONE);
+                        break;
+                    case R.id.end_time_show_custom_radio_button:
+                        mBinding.customEndTimeLayout.setVisibility(View.VISIBLE);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+
         mBinding.startTimePicker.setOnTimeChangedListener(
                 (view, hourOfDay, minute) -> {
-                    reportInfo.setStartTime(String.format("%02d:%02d", hourOfDay, minute));
+                    mReportInfo.setStartTime(String.format("%02d:%02d", hourOfDay, minute));
                 }
         );
 
         mBinding.endTimePicker.setOnTimeChangedListener(
                 (view, hourOfDay, minute) -> {
-                    reportInfo.setEndTime(String.format("%02d:%02d", hourOfDay, minute));
+                    mReportInfo.setEndTime(String.format("%02d:%02d", hourOfDay, minute));
                 }
         );
 
@@ -162,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                reportInfo.setDestination(String.valueOf(s));
+                mReportInfo.setDestination(String.valueOf(s));
             }
         });
 
@@ -179,7 +213,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                reportInfo.setTransportation(String.valueOf(s));
+                mReportInfo.setTransportation(String.valueOf(s));
             }
         });
 
@@ -196,7 +230,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                reportInfo.setReason(String.valueOf(s));
+                mReportInfo.setReason(String.valueOf(s));
             }
         });
     }
@@ -214,36 +248,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onSubmitButtonClicked(View view) {
-        if (reportInfo.getCampus() == null) {
-            reportInfo.setCampus(Campus.LIU_LIN);
+        if (mReportInfo.getCampus() == null) {
+            mReportInfo.setCampus(Campus.LIU_LIN);
         }
-        if (reportInfo.getStartTime() == null
-                || reportInfo.getStartTime().equals(ConstString.EMPTY.value())
-                || reportInfo.getStartTime().equals(ConstString.NULL.value())) {
-            reportInfo.setStartTime(HourMinuteUnit.timePrevMinutesUnit(1).toFormatString());
+        if (StringUtil.isNullOrEmpty(mReportInfo.getStartTime())) {
+            mReportInfo.setStartTime(HourMinuteUnit.timePrevMinutesUnit(1).toFormatString());
         }
-        if (reportInfo.getEndTime() == null
-                || reportInfo.getEndTime().equals(ConstString.EMPTY.value())
-                || reportInfo.getEndTime().equals(ConstString.NULL.value())) {
-            reportInfo.setEndTime("22:55");
+        if (StringUtil.isNullOrEmpty(mReportInfo.getEndTime())) {
+            mReportInfo.setEndTime("22:55");
         }
-        if (reportInfo.getDestination() == null
-                || reportInfo.getDestination().equals(ConstString.EMPTY.value())
-                || reportInfo.getDestination().equals(ConstString.NULL.value())) {
-            reportInfo.setDestination(getString(R.string.default_destination_hint));
+        if (StringUtil.isNullOrEmpty(mReportInfo.getDestination())) {
+            mReportInfo.setDestination(getString(R.string.default_destination_hint));
         }
-        if (reportInfo.getTransportation() == null
-                || reportInfo.getTransportation().equals(ConstString.EMPTY.value())
-                || reportInfo.getTransportation().equals(ConstString.NULL.value())) {
-            reportInfo.setTransportation(getString(R.string.default_transportation_hint));
+        if (StringUtil.isNullOrEmpty(mReportInfo.getTransportation())) {
+            mReportInfo.setTransportation(getString(R.string.default_transportation_hint));
         }
-        if (reportInfo.getReason() == null
-                || reportInfo.getReason().equals(ConstString.EMPTY.value())
-                || reportInfo.getReason().equals(ConstString.NULL.value())) {
-            reportInfo.setReason(getString(R.string.default_reason_hint));
+        if (StringUtil.isNullOrEmpty(mReportInfo.getReason())) {
+            mReportInfo.setReason(getString(R.string.default_reason_hint));
         }
         Intent intent = new Intent(this, WebViewActivity.class);
-        intent.putExtra(IntentParam.REPORT_INFO.getKey(), reportInfo);
+        intent.putExtra(IntentParam.REPORT_INFO.getKey(), mReportInfo);
         startActivity(intent);
     }
 }

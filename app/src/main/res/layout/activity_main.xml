@@ -125,7 +125,7 @@
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="match_parent"
-                        android:layout_height="80dp"
+                        android:layout_height="50dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp">
 
@@ -135,6 +135,44 @@
                             android:layout_weight="0.3"
                             android:gravity="center"
                             android:text="@string/start_time_literal" />
+
+                    <RadioGroup
+                            android:id="@+id/start_time_radio_group"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.7"
+                            android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatRadioButton
+                                android:id="@+id/default_start_time_oneminago_radio_button"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.5"
+                                android:text="@string/one_min_ago_start_literal" />
+
+                        <androidx.appcompat.widget.AppCompatRadioButton
+                                android:id="@+id/start_time_show_custom_radio_button"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.5"
+                                android:text="@string/custom_literal" />
+                    </RadioGroup>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/custom_start_time_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:visibility="gone">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.3"
+                            android:gravity="center"
+                            android:text="@string/custom_start_time_literal" />
 
                     <TimePicker
                             android:id="@+id/start_time_picker"
@@ -148,7 +186,7 @@
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="match_parent"
-                        android:layout_height="80dp"
+                        android:layout_height="50dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp">
 
@@ -158,6 +196,44 @@
                             android:layout_weight="0.3"
                             android:gravity="center"
                             android:text="@string/end_time_literal" />
+
+                    <RadioGroup
+                            android:id="@+id/end_time_radio_group"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.7"
+                            android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatRadioButton
+                                android:id="@+id/default_end_time_2255_radio_button"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.5"
+                                android:text="@string/default_end_time_literal" />
+
+                        <androidx.appcompat.widget.AppCompatRadioButton
+                                android:id="@+id/end_time_show_custom_radio_button"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.5"
+                                android:text="@string/custom_literal" />
+                    </RadioGroup>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/custom_end_time_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:visibility="gone">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.3"
+                            android:gravity="center"
+                            android:text="@string/custom_end_time_literal" />
 
                     <TimePicker
                             android:id="@+id/end_time_picker"
@@ -179,7 +255,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="0.3"
                             android:gravity="center"
-                            android:text="@string/custom_destination" />
+                            android:text="@string/custom_destination_literal" />
 
                     <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/custom_destination_et"
@@ -203,7 +279,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="0.3"
                             android:gravity="center"
-                            android:text="@string/custom_transportation" />
+                            android:text="@string/custom_transportation_literal" />
 
                     <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/custom_transportation_et"
@@ -228,7 +304,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="0.3"
                             android:gravity="center"
-                            android:text="@string/custom_reason" />
+                            android:text="@string/custom_reason_literal" />
 
                     <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/custom_reason_et"
