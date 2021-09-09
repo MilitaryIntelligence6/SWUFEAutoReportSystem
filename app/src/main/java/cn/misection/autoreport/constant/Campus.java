@@ -7,7 +7,7 @@ package cn.misection.autoreport.constant;
  * @Description TODO
  * @CreateTime 2021年09月06日 20:46:00
  */
-public enum EnumCampus {
+public enum Campus {
 
     /**
      * 柳林校区;
@@ -22,7 +22,7 @@ public enum EnumCampus {
 
     private final String chineseLiteral;
 
-    EnumCampus(String chineseLiteral) {
+    Campus(String chineseLiteral) {
         this.chineseLiteral = chineseLiteral;
     }
 
@@ -30,7 +30,7 @@ public enum EnumCampus {
         return chineseLiteral;
     }
 
-    public static EnumCampus selectByOrdinal(int ordinal) {
+    public static Campus selectByOrdinal(int ordinal) {
         if (ordinal < 0 || ordinal > values().length) {
             throw new IllegalArgumentException("select ordinal only can be in the range of (0, values().length)");
         }

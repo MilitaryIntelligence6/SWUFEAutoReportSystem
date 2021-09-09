@@ -2,8 +2,6 @@
     <string name="app_name">西财一键溜了</string>
     <string name="one_key_to_report">一键报备溜了</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="report_submit_url">https://qxj.iswufe.info/QJ/XSBBList</string>
-    <string name="swufe_auth_url">https://authserver.swufe.edu.cn/authserver/login?service=http%3a%2f%2fqxj.iswufe.info%2fQJ%2fXSBBList</string>
     <string name="swufe_auth_keyword">authserver</string>
     <string name="sure">确定</string>
     <string name="swufe_login_page_prompt">首次使用请先登录, 最好点击一周内免登录, 免得天天登, 累得瓜西流了</string>
@@ -24,7 +22,6 @@
 
     <string name="start_time_literal">自定义开始时间</string>
     <string name="end_time_literal">自定义结束时间</string>
-    <string name="empty" />
     <string name="swufe_username_password_hint">可不输, 输后需登录时帮你自动填账号密码</string>
     <string name="campus_literal">所在校区</string>
     <string name="campus_liulin">柳林校区</string>

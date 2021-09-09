@@ -14,12 +14,11 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import java.io.Serializable;
 import java.util.List;
 
 import cn.misection.autoreport.BuildConfig;
 import cn.misection.autoreport.R;
-import cn.misection.autoreport.constant.JavaScriptPool;
+import cn.misection.autoreport.constant.SwufePage;
 import cn.misection.autoreport.databinding.ActivityWebViewBinding;
 import cn.misection.autoreport.entity.ReportInfo;
 import cn.misection.autoreport.util.jsutil.InfoToJsCompiler;
@@ -71,7 +70,7 @@ public class WebViewActivity extends AppCompatActivity {
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
                 ++enterCount;
-                if (view.getUrl().equals(WebViewActivity.this.getString(R.string.report_submit_url))) {
+                if (view.getUrl().equals(SwufePage.REPORT.getUrl())) {
                     if (BuildConfig.DEBUG) {
                         AppSystem.out.printt(WebViewActivity.this, "report branch");
                     }
@@ -123,14 +122,13 @@ public class WebViewActivity extends AppCompatActivity {
         mBinding.reportWebView.setWebChromeClient(new WebChromeClient() {
             @Override
             public boolean onJsAlert(WebView view, String url, String message, JsResult result) {
-
                 return super.onJsAlert(view, url, message, result);
             }
         });
     }
 
     private void initPage() {
-        mBinding.reportWebView.loadUrl(getString(R.string.report_submit_url));
+        mBinding.reportWebView.loadUrl(SwufePage.REPORT.getUrl());
     }
 
     private void alertDefault(String msg) {

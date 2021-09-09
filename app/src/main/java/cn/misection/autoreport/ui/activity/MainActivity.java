@@ -15,7 +15,9 @@ import com.xuexiang.xui.XUI;
 import java.util.Calendar;
 
 import cn.misection.autoreport.R;
-import cn.misection.autoreport.constant.EnumCampus;
+import cn.misection.autoreport.constant.ConstString;
+import cn.misection.autoreport.constant.Campus;
+import cn.misection.autoreport.constant.IntentParam;
 import cn.misection.autoreport.databinding.ActivityMainBinding;
 import cn.misection.autoreport.entity.ReportInfo;
 import cn.misection.autoreport.entity.SwufeUser;
@@ -125,10 +127,10 @@ public class MainActivity extends AppCompatActivity {
                 (group, checkedId) -> {
                     switch (checkedId) {
                         case R.id.campus_liulin_radio_button:
-                            info.setCampus(EnumCampus.LIU_LIN);
+                            info.setCampus(Campus.LIU_LIN);
                             break;
                         case R.id.campus_guanghua_radio_button:
-                            info.setCampus(EnumCampus.GUANG_HUA);
+                            info.setCampus(Campus.GUANG_HUA);
                             break;
                         default:
                             break;
@@ -223,7 +225,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onSubmitButtonClicked(View view) {
-        EnumCampus campus = EnumCampus.LIU_LIN;
+        Campus campus = Campus.LIU_LIN;
         String startTimeString = String.format("%s:%s",
                 mBinding.startTimePicker.getHour(),
                 mBinding.startTimePicker.getMinute());
@@ -233,13 +235,13 @@ public class MainActivity extends AppCompatActivity {
         String destination = String.valueOf(mBinding.customDestinationEt.getText());
         String transportation = String.valueOf(mBinding.customTransportationEt.getText());
         String reason = String.valueOf(mBinding.customReasonEt.getText());
-        if (destination == null || destination.equals(getString(R.string.empty))) {
+        if (destination == null || destination.equals(ConstString.EMPTY.value())) {
             destination = getString(R.string.default_destination_hint);
         }
-        if (transportation == null || transportation.equals(getString(R.string.empty))) {
+        if (transportation == null || transportation.equals(ConstString.EMPTY.value())) {
             transportation = getString(R.string.default_transportation_hint);
         }
-        if (reason == null || reason.equals(getString(R.string.empty))) {
+        if (reason == null || reason.equals(ConstString.EMPTY.value())) {
             reason = getString(R.string.default_reason_hint);
         }
         ReportInfo reportInfo = new ReportInfo.Builder()
@@ -251,7 +253,7 @@ public class MainActivity extends AppCompatActivity {
                 .setReason(reason)
                 .create();
         Intent intent = new Intent(this, WebViewActivity.class);
-        intent.putExtra(getString(R.string.activity_param_key), reportInfo);
+        intent.putExtra(IntentParam.REPORT_INFO.getKey(), reportInfo);
         startActivity(intent);
     }
 }
