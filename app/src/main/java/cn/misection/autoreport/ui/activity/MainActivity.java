@@ -172,31 +172,80 @@ public class MainActivity extends AppCompatActivity {
         });
 
         mBinding.destinationRadioGroup.setOnCheckedChangeListener(
-                new RadioGroup.OnCheckedChangeListener() {
-                    @Override
-                    public void onCheckedChanged(RadioGroup group, int checkedId) {
-                        switch (checkedId) {
-                            case R.id.default_destination_east_radio_button:
-                                mReportInfo.setDestination(String.valueOf(mBinding.defaultDestinationEastRadioButton.getText()));
-                                mBinding.customDestinationLayout.setVisibility(View.GONE);
-                                break;
-                            case R.id.default_destination_west_radio_button:
-                                mReportInfo.setDestination(String.valueOf(mBinding.defaultDestinationWestRadioButton.getText()));
-                                mBinding.customDestinationLayout.setVisibility(View.GONE);
-                                break;
-                            case R.id.default_destination_canyon_radio_button:
-                                mReportInfo.setDestination(String.valueOf(mBinding.defaultDestinationCanyonRadioButton.getText()));
-                                mBinding.customDestinationLayout.setVisibility(View.GONE);
-                                break;
-                            case R.id.destination_show_custom_radio_button:
-                                mBinding.customDestinationLayout.setVisibility(View.VISIBLE);
-                                break;
-                            default:
-                                break;
-                        }
+                (group, checkedId) -> {
+                    switch (checkedId) {
+                        case R.id.default_destination_east_radio_button:
+                            mReportInfo.setDestination(String.valueOf(mBinding.defaultDestinationEastRadioButton.getText()));
+                            mBinding.customDestinationLayout.setVisibility(View.GONE);
+                            break;
+                        case R.id.default_destination_west_radio_button:
+                            mReportInfo.setDestination(String.valueOf(mBinding.defaultDestinationWestRadioButton.getText()));
+                            mBinding.customDestinationLayout.setVisibility(View.GONE);
+                            break;
+                        case R.id.default_destination_canyon_radio_button:
+                            mReportInfo.setDestination(String.valueOf(mBinding.defaultDestinationCanyonRadioButton.getText()));
+                            mBinding.customDestinationLayout.setVisibility(View.GONE);
+                            break;
+                        case R.id.destination_show_custom_radio_button:
+                            mReportInfo.setDestination(String.valueOf(mBinding.customDestinationEt.getText()));
+                            mBinding.customDestinationLayout.setVisibility(View.VISIBLE);
+                            break;
+                        default:
+                            break;
                     }
                 }
         );
+
+        mBinding.transportationRadioGroup.setOnCheckedChangeListener(
+                (group, checkedId) -> {
+                    switch (checkedId) {
+                        case R.id.default_transportation_walk_radio_button:
+                            mReportInfo.setTransportation(String.valueOf(mBinding.defaultTransportationWalkRadioButton.getText()));
+                            mBinding.customTransportationLayout.setVisibility(View.GONE);
+                            break;
+                        case R.id.default_transportation_bike_radio_button:
+                            mReportInfo.setTransportation(String.valueOf(mBinding.defaultTransportationBikeRadioButton.getText()));
+                            mBinding.customTransportationLayout.setVisibility(View.GONE);
+                            break;
+                        case R.id.default_transportation_fly_radio_button:
+                            mReportInfo.setTransportation(String.valueOf(mBinding.defaultTransportationFlyRadioButton.getText()));
+                            mBinding.customTransportationLayout.setVisibility(View.GONE);
+                            break;
+                        case R.id.transportation_show_custom_radio_button:
+                            mReportInfo.setTransportation(String.valueOf(mBinding.customTransportationEt.getText()));
+                            mBinding.customTransportationLayout.setVisibility(View.VISIBLE);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+        );
+
+        mBinding.reasonRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId) {
+                    case R.id.default_reason_eat_radio_button:
+                        mReportInfo.setReason(String.valueOf(mBinding.defaultReasonEatRadioButton.getText()));
+                        mBinding.customReasonLayout.setVisibility(View.GONE);
+                        break;
+                    case R.id.default_reason_findjob_radio_button:
+                        mReportInfo.setReason(String.valueOf(mBinding.defaultReasonFindjobRadioButton.getText()));
+                        mBinding.customReasonLayout.setVisibility(View.GONE);
+                        break;
+                    case R.id.default_reason_random_radio_button:
+                        mReportInfo.setReason(String.valueOf(mBinding.defaultReasonRandomRadioButton.getText()));
+                        mBinding.customReasonLayout.setVisibility(View.GONE);
+                        break;
+                    case R.id.reason_show_custom_radio_button:
+                        mReportInfo.setReason(String.valueOf(mBinding.customReasonEt.getText()));
+                        mBinding.customReasonLayout.setVisibility(View.VISIBLE);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
 
         mBinding.startTimePicker.setOnTimeChangedListener(
                 (view, hourOfDay, minute) -> {
