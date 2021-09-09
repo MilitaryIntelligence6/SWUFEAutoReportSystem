@@ -327,6 +327,7 @@
                             android:layout_weight="0.7"
                             android:background="@drawable/edit_text_round_bg"
                             android:hint="@string/default_destination_hint"
+                            android:textColorHint="@color/xui_config_color_gray_5"
                             android:inputType="textMultiLine"
                             android:maxLines="20" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
@@ -405,6 +406,7 @@
                             android:layout_weight="0.7"
                             android:background="@drawable/edit_text_round_bg"
                             android:hint="@string/default_transportation_hint"
+                            android:textColorHint="@color/xui_config_color_gray_5"
                             android:inputType="textMultiLine"
                             android:maxLines="20" />
 
@@ -484,6 +486,7 @@
                             android:layout_weight="0.7"
                             android:background="@drawable/edit_text_round_bg"
                             android:hint="@string/default_reason_hint"
+                            android:textColorHint="@color/xui_config_color_gray_5"
                             android:inputType="textMultiLine"
                             android:maxLines="20" />
                 </androidx.appcompat.widget.LinearLayoutCompat>

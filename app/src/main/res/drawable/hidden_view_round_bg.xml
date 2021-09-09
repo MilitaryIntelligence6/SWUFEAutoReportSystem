@@ -11,6 +11,6 @@
     <!--            android:width="1dp"-->
     <!--            android:color="@color/xui_config_color_10_pure_black" />-->
 
-    <solid android:color="@android:color/holo_blue_light" />
+    <solid android:color="#C4E1FF" />
 
 </shape>
