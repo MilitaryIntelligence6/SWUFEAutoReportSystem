@@ -26,7 +26,7 @@
     <string name="campus_literal">所在校区</string>
     <string name="campus_liulin">柳林校区</string>
     <string name="campus_guanghua">光华校区</string>
-    <string name="user_would_like_not_click_submit">直接打卡, 我不想再跳过去手动点提交了</string>
+    <string name="submit_directly_literal">直接打卡, 我不想再跳过去手动点提交了</string>
     <string name="start_time_literal">出发时间</string>
     <string name="one_min_ago_start_literal">出发前一分钟, 保证直接刷脸出校</string>
     <string name="custom_literal">自定义</string>
@@ -40,5 +40,7 @@
     <string name="default_transportation_bike">骑行</string>
     <string name="default_transportation_fly">飞行</string>
     <string name="transportation_literal">交通方式</string>
+    <string name="reason_literal">理由</string>
+    <string name="law_risk_declaration">我了解, 知悉并遵守学校的防疫规定, 由此产生的任何问题与开发者无关, 由本人承担</string>
 
 </resources>

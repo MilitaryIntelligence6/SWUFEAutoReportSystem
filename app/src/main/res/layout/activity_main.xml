@@ -17,10 +17,11 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             tools:context=".ui.activity.MainActivity">
 
         <androidx.core.widget.NestedScrollView
+                android:id="@+id/scroll_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
@@ -400,9 +401,61 @@
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
+                        android:layout_height="30dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.3"
+                            android:gravity="center"
+                            android:text="@string/reason_literal" />
+
+                    <RadioGroup
+                            android:id="@+id/reason_radio_group"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.7"
+                            android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatRadioButton
+                                android:id="@+id/default_reason_eat_radio_button"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.25"
+                                android:text="恰饭" />
+
+                        <androidx.appcompat.widget.AppCompatRadioButton
+                                android:id="@+id/default_reason_findjob_radio_button"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.25"
+                                android:text="找工作" />
+
+                        <androidx.appcompat.widget.AppCompatRadioButton
+                                android:id="@+id/default_reason_random_radio_button"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.25"
+                                android:text="悟道" />
+
+                        <androidx.appcompat.widget.AppCompatRadioButton
+                                android:id="@+id/reason_show_custom_radio_button"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.25"
+                                android:text="@string/custom_literal" />
+                    </RadioGroup>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/custom_reason_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:visibility="gone">
 
                     <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="0dp"
@@ -429,6 +482,7 @@
                         android:layout_marginBottom="5dp">
 
                     <androidx.appcompat.widget.AppCompatCheckBox
+                            android:id="@+id/submit_directly_check_box"
                             android:layout_width="30dp"
                             android:layout_height="30dp" />
 
@@ -436,7 +490,25 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center_vertical"
-                            android:text="@string/user_would_like_not_click_submit" />
+                            android:text="@string/submit_directly_literal" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp">
+
+                    <androidx.appcompat.widget.AppCompatCheckBox
+                            android:id="@+id/law_risk_check_box"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:text="@string/law_risk_declaration" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
             </androidx.appcompat.widget.LinearLayoutCompat>
@@ -449,8 +521,10 @@
                 android:layout_height="75dp"
                 android:onClick="onSubmitButtonClicked"
                 android:text="@string/one_key_to_report"
+                app:layout_constraintTop_toBottomOf="@+id/scroll_view"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
