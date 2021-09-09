@@ -15,15 +15,17 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:orientation="vertical"
             tools:context=".ui.activity.MainActivity">
 
         <androidx.core.widget.NestedScrollView
                 android:id="@+id/scroll_view"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.875"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp">
 
@@ -518,13 +520,10 @@
         <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/submit_button"
                 android:layout_width="match_parent"
-                android:layout_height="75dp"
+                android:layout_height="0dp"
+                android:layout_weight="0.125"
                 android:onClick="onSubmitButtonClicked"
-                android:text="@string/one_key_to_report"
-                app:layout_constraintTop_toBottomOf="@+id/scroll_view"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent" />
+                android:text="@string/one_key_to_report"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 </layout>
