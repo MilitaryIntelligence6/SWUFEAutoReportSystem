@@ -1,5 +1,7 @@
 package cn.misection.autoreport.ui.activity;
 
+import android.annotation.SuppressLint;
+import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +15,8 @@ import android.webkit.WebViewClient;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+
+import com.xuexiang.xui.XUI;
 
 import java.util.List;
 
@@ -33,6 +37,7 @@ public class WebViewActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        XUI.initTheme(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_view);
         init();
@@ -65,6 +70,11 @@ public class WebViewActivity extends AppCompatActivity {
         mBinding.reportWebView.setWebViewClient(new WebViewClient() {
 
             private int enterCount = 0;
+
+            @Override
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                super.onPageStarted(view, url, favicon);
+            }
 
             @Override
             public void onPageFinished(WebView view, String url) {
