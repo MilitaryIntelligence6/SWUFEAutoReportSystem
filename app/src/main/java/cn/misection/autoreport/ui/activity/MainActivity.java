@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.RadioGroup;
+import android.widget.TimePicker;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -20,6 +22,7 @@ import cn.misection.autoreport.entity.ReportInfo;
 import cn.misection.autoreport.entity.SwufeUser;
 import cn.misection.autoreport.util.stringutil.StringUtil;
 import cn.misection.autoreport.util.timeutil.HourMinuteUnit;
+import cn.misection.autoreport.util.uiutil.VisibilityChecker;
 
 /**
  * @author Administrator
@@ -63,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
     private void initUI() {
         initStartTimePicker();
         initEndTimePicker();
-        initRadioButtonState();
+        initCheckVisibility();
     }
 
     private void initData() {
@@ -81,9 +84,27 @@ public class MainActivity extends AppCompatActivity {
         flushEndTimePicker();
     }
 
-    private void initRadioButtonState() {
-        mBinding.campusLiulinRadioButton.setChecked(true);
-        mBinding.defaultStartTimeOneminagoRadioButton.setChecked(true);
+    private void initCheckVisibility() {
+        VisibilityChecker.check(
+                mBinding.customStartTimeLayout,
+                mBinding.startTimeShowCustomRadioButton
+        );
+        VisibilityChecker.check(
+                mBinding.customEndTimeLayout,
+                mBinding.endTimeShowCustomRadioButton
+        );
+        VisibilityChecker.check(
+                mBinding.customDestinationLayout,
+                mBinding.destinationShowCustomRadioButton
+        );
+        VisibilityChecker.check(
+                mBinding.customTransportationLayout,
+                mBinding.transportationShowCustomRadioButton
+        );
+        VisibilityChecker.check(
+                mBinding.customReasonLayout,
+                mBinding.reasonShowCustomRadioButton
+        );
     }
 
     private void initActionListener() {
@@ -124,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
         );
 
         mBinding.campusRadioGroup.setOnCheckedChangeListener(
-                (group, checkedId) -> {
+                (RadioGroup group, int checkedId) -> {
                     switch (checkedId) {
                         case R.id.campus_liulin_radio_button:
                             mReportInfo.setCampus(Campus.LIU_LIN);
@@ -139,56 +160,42 @@ public class MainActivity extends AppCompatActivity {
         );
 
         mBinding.startTimeRadioGroup.setOnCheckedChangeListener(
-                (group, checkedId) -> {
+                (RadioGroup group, int checkedId) -> {
                     mReportInfo.setStartTime(HourMinuteUnit.timePrevMinutesUnit(1).toFormatString());
-                    switch (checkedId) {
-                        case R.id.default_start_time_oneminago_radio_button:
-                            mBinding.customStartTimeLayout.setVisibility(View.GONE);
-                            break;
-                        case R.id.start_time_show_custom_radio_button:
-                            mBinding.customStartTimeLayout.setVisibility(View.VISIBLE);
-                            break;
-                        default:
-                            break;
-                    }
+                    VisibilityChecker.check(
+                            mBinding.customStartTimeLayout,
+                            mBinding.startTimeShowCustomRadioButton
+                    );
                 }
         );
 
-        mBinding.endTimeRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                mReportInfo.setEndTime("22:55");
-                switch (checkedId) {
-                    case R.id.default_end_time_2255_radio_button:
-                        mBinding.customEndTimeLayout.setVisibility(View.GONE);
-                        break;
-                    case R.id.end_time_show_custom_radio_button:
-                        mBinding.customEndTimeLayout.setVisibility(View.VISIBLE);
-                        break;
-                    default:
-                        break;
-                }
-            }
-        });
+        mBinding.endTimeRadioGroup.setOnCheckedChangeListener(
+                (RadioGroup group, int checkedId) -> {
+                    mReportInfo.setEndTime("22:55");
+                    VisibilityChecker.check(
+                            mBinding.customEndTimeLayout,
+                            mBinding.endTimeShowCustomRadioButton
+                    );
+                });
 
         mBinding.destinationRadioGroup.setOnCheckedChangeListener(
-                (group, checkedId) -> {
+                (RadioGroup group, int checkedId) -> {
+                    VisibilityChecker.check(
+                            mBinding.customDestinationLayout,
+                            mBinding.destinationShowCustomRadioButton
+                    );
                     switch (checkedId) {
                         case R.id.default_destination_east_radio_button:
                             mReportInfo.setDestination(String.valueOf(mBinding.defaultDestinationEastRadioButton.getText()));
-                            mBinding.customDestinationLayout.setVisibility(View.GONE);
                             break;
                         case R.id.default_destination_west_radio_button:
                             mReportInfo.setDestination(String.valueOf(mBinding.defaultDestinationWestRadioButton.getText()));
-                            mBinding.customDestinationLayout.setVisibility(View.GONE);
                             break;
                         case R.id.default_destination_canyon_radio_button:
                             mReportInfo.setDestination(String.valueOf(mBinding.defaultDestinationCanyonRadioButton.getText()));
-                            mBinding.customDestinationLayout.setVisibility(View.GONE);
                             break;
                         case R.id.destination_show_custom_radio_button:
                             mReportInfo.setDestination(String.valueOf(mBinding.customDestinationEt.getText()));
-                            mBinding.customDestinationLayout.setVisibility(View.VISIBLE);
                             break;
                         default:
                             break;
@@ -197,23 +204,23 @@ public class MainActivity extends AppCompatActivity {
         );
 
         mBinding.transportationRadioGroup.setOnCheckedChangeListener(
-                (group, checkedId) -> {
+                (RadioGroup group, int checkedId) -> {
+                    VisibilityChecker.check(
+                            mBinding.customTransportationLayout,
+                            mBinding.transportationShowCustomRadioButton
+                    );
                     switch (checkedId) {
                         case R.id.default_transportation_walk_radio_button:
                             mReportInfo.setTransportation(String.valueOf(mBinding.defaultTransportationWalkRadioButton.getText()));
-                            mBinding.customTransportationLayout.setVisibility(View.GONE);
                             break;
                         case R.id.default_transportation_bike_radio_button:
                             mReportInfo.setTransportation(String.valueOf(mBinding.defaultTransportationBikeRadioButton.getText()));
-                            mBinding.customTransportationLayout.setVisibility(View.GONE);
                             break;
                         case R.id.default_transportation_fly_radio_button:
                             mReportInfo.setTransportation(String.valueOf(mBinding.defaultTransportationFlyRadioButton.getText()));
-                            mBinding.customTransportationLayout.setVisibility(View.GONE);
                             break;
                         case R.id.transportation_show_custom_radio_button:
                             mReportInfo.setTransportation(String.valueOf(mBinding.customTransportationEt.getText()));
-                            mBinding.customTransportationLayout.setVisibility(View.VISIBLE);
                             break;
                         default:
                             break;
@@ -221,40 +228,38 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
 
-        mBinding.reasonRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId) {
-                    case R.id.default_reason_eat_radio_button:
-                        mReportInfo.setReason(String.valueOf(mBinding.defaultReasonEatRadioButton.getText()));
-                        mBinding.customReasonLayout.setVisibility(View.GONE);
-                        break;
-                    case R.id.default_reason_findjob_radio_button:
-                        mReportInfo.setReason(String.valueOf(mBinding.defaultReasonFindjobRadioButton.getText()));
-                        mBinding.customReasonLayout.setVisibility(View.GONE);
-                        break;
-                    case R.id.default_reason_random_radio_button:
-                        mReportInfo.setReason(String.valueOf(mBinding.defaultReasonRandomRadioButton.getText()));
-                        mBinding.customReasonLayout.setVisibility(View.GONE);
-                        break;
-                    case R.id.reason_show_custom_radio_button:
-                        mReportInfo.setReason(String.valueOf(mBinding.customReasonEt.getText()));
-                        mBinding.customReasonLayout.setVisibility(View.VISIBLE);
-                        break;
-                    default:
-                        break;
-                }
-            }
-        });
+        mBinding.reasonRadioGroup.setOnCheckedChangeListener(
+                (RadioGroup group, int checkedId) -> {
+                    VisibilityChecker.check(
+                            mBinding.customReasonLayout,
+                            mBinding.reasonShowCustomRadioButton
+                    );
+                    switch (checkedId) {
+                        case R.id.default_reason_eat_radio_button:
+                            mReportInfo.setReason(String.valueOf(mBinding.defaultReasonEatRadioButton.getText()));
+                            break;
+                        case R.id.default_reason_findjob_radio_button:
+                            mReportInfo.setReason(String.valueOf(mBinding.defaultReasonFindjobRadioButton.getText()));
+                            break;
+                        case R.id.default_reason_random_radio_button:
+                            mReportInfo.setReason(String.valueOf(mBinding.defaultReasonRandomRadioButton.getText()));
+                            break;
+                        case R.id.reason_show_custom_radio_button:
+                            mReportInfo.setReason(String.valueOf(mBinding.customReasonEt.getText()));
+                            break;
+                        default:
+                            break;
+                    }
+                });
 
         mBinding.startTimePicker.setOnTimeChangedListener(
-                (view, hourOfDay, minute) -> {
+                (TimePicker view, int hourOfDay, int minute) -> {
                     mReportInfo.setStartTime(String.format("%02d:%02d", hourOfDay, minute));
                 }
         );
 
         mBinding.endTimePicker.setOnTimeChangedListener(
-                (view, hourOfDay, minute) -> {
+                (TimePicker view, int hourOfDay, int minute) -> {
                     mReportInfo.setEndTime(String.format("%02d:%02d", hourOfDay, minute));
                 }
         );
@@ -309,6 +314,10 @@ public class MainActivity extends AppCompatActivity {
                 mReportInfo.setReason(String.valueOf(s));
             }
         });
+
+        mBinding.lawRiskCheckBox.setOnCheckedChangeListener(
+                (CompoundButton buttonView, boolean isChecked) -> mBinding.submitButton.setEnabled(isChecked)
+        );
     }
 
     private void flushStartTimePicker() {
@@ -324,6 +333,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onSubmitButtonClicked(View view) {
+        if (!mBinding.lawRiskCheckBox.isChecked()) {
+//            new AlertDialog.Builder()
+//                    .setTitle()
+            return;
+        }
         if (mReportInfo.getCampus() == null) {
             mReportInfo.setCampus(Campus.LIU_LIN);
         }

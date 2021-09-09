@@ -115,6 +115,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.5"
+                                android:checked="true"
                                 android:text="@string/campus_liulin" />
 
                         <androidx.appcompat.widget.AppCompatRadioButton
@@ -151,6 +152,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.5"
+                                android:checked="true"
                                 android:text="@string/one_min_ago_start_literal" />
 
                         <androidx.appcompat.widget.AppCompatRadioButton
@@ -212,6 +214,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.5"
+                                android:checked="true"
                                 android:text="@string/default_end_time_literal" />
 
                         <androidx.appcompat.widget.AppCompatRadioButton
@@ -294,6 +297,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.25"
+                                android:checked="true"
                                 android:text="@string/custom_literal" />
                     </RadioGroup>
                 </androidx.appcompat.widget.LinearLayoutCompat>
@@ -370,6 +374,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.25"
+                                android:checked="true"
                                 android:text="@string/custom_literal" />
                     </RadioGroup>
                 </androidx.appcompat.widget.LinearLayoutCompat>
@@ -426,27 +431,28 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.25"
-                                android:text="恰饭" />
+                                android:text="@string/default_eat_literal" />
 
                         <androidx.appcompat.widget.AppCompatRadioButton
                                 android:id="@+id/default_reason_findjob_radio_button"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.25"
-                                android:text="找工作" />
+                                android:text="@string/default_findjob_literal" />
 
                         <androidx.appcompat.widget.AppCompatRadioButton
                                 android:id="@+id/default_reason_random_radio_button"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.25"
-                                android:text="悟道" />
+                                android:text="@string/default_study_lteral" />
 
                         <androidx.appcompat.widget.AppCompatRadioButton
                                 android:id="@+id/reason_show_custom_radio_button"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.25"
+                                android:checked="true"
                                 android:text="@string/custom_literal" />
                     </RadioGroup>
                 </androidx.appcompat.widget.LinearLayoutCompat>
@@ -486,7 +492,8 @@
                     <androidx.appcompat.widget.AppCompatCheckBox
                             android:id="@+id/submit_directly_check_box"
                             android:layout_width="30dp"
-                            android:layout_height="30dp" />
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"/>
 
                     <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="match_parent"
@@ -497,14 +504,16 @@
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="match_parent"
-                        android:layout_height="30dp"
+                        android:layout_height="60dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp">
 
                     <androidx.appcompat.widget.AppCompatCheckBox
                             android:id="@+id/law_risk_check_box"
                             android:layout_width="30dp"
-                            android:layout_height="30dp" />
+                            android:layout_height="30dp"
+                            android:checked="true"
+                            android:layout_gravity="center"/>
 
                     <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="match_parent"
@@ -523,6 +532,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="0.125"
                 android:onClick="onSubmitButtonClicked"
+                android:enabled="true"
                 android:text="@string/one_key_to_report"/>
 
     </androidx.appcompat.widget.LinearLayoutCompat>

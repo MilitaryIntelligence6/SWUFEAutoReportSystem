@@ -42,5 +42,8 @@
     <string name="transportation_literal">交通方式</string>
     <string name="reason_literal">理由</string>
     <string name="law_risk_declaration">我了解, 知悉并遵守学校的防疫规定, 由此产生的任何问题与开发者无关, 由本人承担</string>
+    <string name="default_eat_literal">恰饭</string>
+    <string name="default_findjob_literal">找工作</string>
+    <string name="default_study_lteral">悟道</string>
 
 </resources>
