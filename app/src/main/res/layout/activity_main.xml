@@ -246,9 +246,62 @@
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="match_parent"
-                        android:layout_height="30dp"
+                        android:layout_height="50dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.3"
+                            android:gravity="center"
+                            android:text="@string/destination_literal" />
+
+                    <RadioGroup
+                            android:id="@+id/destination_radio_group"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.7"
+                            android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatRadioButton
+                                android:id="@+id/default_destination_east_radio_button"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.25"
+                                android:text="@string/default_destination_east" />
+
+
+                        <androidx.appcompat.widget.AppCompatRadioButton
+                                android:id="@+id/default_destination_west_radio_button"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.25"
+                                android:text="@string/default_destination_west" />
+
+                        <androidx.appcompat.widget.AppCompatRadioButton
+                                android:id="@+id/default_destination_canyon_radio_button"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.25"
+                                android:text="@string/default_destination_canyon" />
+
+                        <androidx.appcompat.widget.AppCompatRadioButton
+                                android:id="@+id/destination_show_custom_radio_button"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.25"
+                                android:text="@string/custom_literal" />
+                    </RadioGroup>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/custom_destination_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:visibility="gone">
 
                     <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="0dp"
@@ -273,6 +326,58 @@
                         android:layout_height="30dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.3"
+                            android:gravity="center"
+                            android:text="@string/transportation_literal" />
+
+                    <RadioGroup
+                            android:id="@+id/transportation_radio_group"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.7"
+                            android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatRadioButton
+                                android:id="@+id/default_transportation_walk_radio_button"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.25"
+                                android:text="@string/default_transportation_walk" />
+
+                        <androidx.appcompat.widget.AppCompatRadioButton
+                                android:id="@+id/default_transportation_bike_radio_button"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.25"
+                                android:text="@string/default_transportation_bike" />
+
+                        <androidx.appcompat.widget.AppCompatRadioButton
+                                android:id="@+id/default_transportation_fly_radio_button"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.25"
+                                android:text="@string/default_transportation_fly" />
+
+                        <androidx.appcompat.widget.AppCompatRadioButton
+                                android:id="@+id/transportation_show_custom_radio_button"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.25"
+                                android:text="@string/custom_literal" />
+                    </RadioGroup>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/custom_transportation_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:visibility="gone">
 
                     <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="0dp"

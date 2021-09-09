@@ -32,5 +32,13 @@
     <string name="custom_literal">自定义</string>
     <string name="end_time_literal">结束时间</string>
     <string name="default_end_time_literal">22:55极限时间, 请遵守防疫规定</string>
+    <string name="default_destination_east">东门</string>
+    <string name="default_destination_west">西门</string>
+    <string name="default_destination_canyon">召唤师峡谷</string>
+    <string name="destination_literal">目的地</string>
+    <string name="default_transportation_walk">步行</string>
+    <string name="default_transportation_bike">骑行</string>
+    <string name="default_transportation_fly">飞行</string>
+    <string name="transportation_literal">交通方式</string>
 
 </resources>

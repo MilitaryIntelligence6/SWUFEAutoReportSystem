@@ -171,6 +171,33 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        mBinding.destinationRadioGroup.setOnCheckedChangeListener(
+                new RadioGroup.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(RadioGroup group, int checkedId) {
+                        switch (checkedId) {
+                            case R.id.default_destination_east_radio_button:
+                                mReportInfo.setDestination(String.valueOf(mBinding.defaultDestinationEastRadioButton.getText()));
+                                mBinding.customDestinationLayout.setVisibility(View.GONE);
+                                break;
+                            case R.id.default_destination_west_radio_button:
+                                mReportInfo.setDestination(String.valueOf(mBinding.defaultDestinationWestRadioButton.getText()));
+                                mBinding.customDestinationLayout.setVisibility(View.GONE);
+                                break;
+                            case R.id.default_destination_canyon_radio_button:
+                                mReportInfo.setDestination(String.valueOf(mBinding.defaultDestinationCanyonRadioButton.getText()));
+                                mBinding.customDestinationLayout.setVisibility(View.GONE);
+                                break;
+                            case R.id.destination_show_custom_radio_button:
+                                mBinding.customDestinationLayout.setVisibility(View.VISIBLE);
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+        );
+
         mBinding.startTimePicker.setOnTimeChangedListener(
                 (view, hourOfDay, minute) -> {
                     mReportInfo.setStartTime(String.format("%02d:%02d", hourOfDay, minute));
