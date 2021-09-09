@@ -316,7 +316,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
         mBinding.lawRiskCheckBox.setOnCheckedChangeListener(
-                (CompoundButton buttonView, boolean isChecked) -> mBinding.submitButton.setEnabled(isChecked)
+                (CompoundButton buttonView, boolean isChecked) -> {
+                    mBinding.submitButton.setEnabled(isChecked);
+                }
         );
     }
 

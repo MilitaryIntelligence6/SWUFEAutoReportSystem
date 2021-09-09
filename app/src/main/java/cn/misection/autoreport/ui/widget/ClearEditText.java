@@ -12,7 +12,8 @@ import android.view.View;
 import androidx.appcompat.widget.AppCompatEditText;
 
 /**
- * 继承AppCompatEditText并实现TextWatcher和OnFocusChangeListener 
+ * 继承AppCompatEditText并实现TextWatcher和OnFocusChangeListener
+ * @author Administrator
  */
 public class ClearEditText extends AppCompatEditText
         implements TextWatcher, View.OnFocusChangeListener {
@@ -21,9 +22,11 @@ public class ClearEditText extends AppCompatEditText
      * 清除按钮图片
      */
     private Drawable mClearDrawable;
+
     private boolean hasFocus;
 
     private TextWatcher mTextWatcher;
+
     private OnFocusChangeListener mOnFocusChangeListener;
 
     /**
