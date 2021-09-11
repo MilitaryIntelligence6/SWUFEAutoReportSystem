@@ -1,9 +1,12 @@
 package cn.misection.autoreport.ui.activity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.RadioGroup;
@@ -14,6 +17,7 @@ import androidx.databinding.DataBindingUtil;
 
 import com.xuexiang.xui.XUI;
 
+import cn.misection.autoreport.BuildConfig;
 import cn.misection.autoreport.R;
 import cn.misection.autoreport.constant.Campus;
 import cn.misection.autoreport.constant.IntentParam;
@@ -23,6 +27,7 @@ import cn.misection.autoreport.entity.SwufeUser;
 import cn.misection.autoreport.util.stringutil.StringUtil;
 import cn.misection.autoreport.util.timeutil.HourMinuteUnit;
 import cn.misection.autoreport.util.uiutil.VisibilityChecker;
+import cn.misection.util.oututil.system.AppSystem;
 
 /**
  * @author Administrator
@@ -35,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ReportInfo mReportInfo;
 
+    private SharedPreferences mPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initBinding() {
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        mPreferences = this.getPreferences(MODE_PRIVATE);
         mBinding.setReportInfo(mReportInfo);
         mBinding.setUser(mUser);
     }
@@ -107,23 +114,26 @@ public class MainActivity extends AppCompatActivity {
         );
     }
 
+    @SuppressLint("NonConstantResourceId")
     private void initActionListener() {
-        mBinding.usernameEt.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        mBinding.usernameEt.addTextChangedListener(
+                new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-            }
+                    }
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    @Override
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-            }
+                    }
 
-            @Override
-            public void afterTextChanged(Editable s) {
-                mUser.setUsername(String.valueOf(s));
-            }
-        });
+                    @Override
+                    public void afterTextChanged(Editable s) {
+                        mUser.setUsername(String.valueOf(s));
+                    }
+                }
+        );
 
         mBinding.passwordEt.addTextChangedListener(
                 new TextWatcher() {
@@ -176,7 +186,8 @@ public class MainActivity extends AppCompatActivity {
                             mBinding.customEndTimeLayout,
                             mBinding.endTimeShowCustomRadioButton
                     );
-                });
+                }
+        );
 
         mBinding.destinationRadioGroup.setOnCheckedChangeListener(
                 (RadioGroup group, int checkedId) -> {
@@ -335,6 +346,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onSubmitButtonClicked(View view) {
+        savePreferences();
         if (!mBinding.lawRiskCheckBox.isChecked()) {
 //            new AlertDialog.Builder()
 //                    .setTitle()
@@ -361,5 +373,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, WebViewActivity.class);
         intent.putExtra(IntentParam.REPORT_INFO.getKey(), mReportInfo);
         startActivity(intent);
+    }
+
+    private void savePreferences() {
+
     }
 }

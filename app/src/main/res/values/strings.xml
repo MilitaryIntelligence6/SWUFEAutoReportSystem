@@ -28,7 +28,7 @@
     <string name="campus_guanghua">光华校区</string>
     <string name="submit_directly_literal">直接打卡, 我不想再跳过去手动点提交了</string>
     <string name="start_time_literal">出发时间</string>
-    <string name="one_min_ago_start_literal">出发前 1 min, 直接刷脸溜</string>
+    <string name="one_min_ago_start_literal">1 分钟前, 直接刷脸溜</string>
     <string name="custom_literal">自定义</string>
     <string name="end_time_literal">结束时间</string>
     <string name="default_end_time_literal">22:55 极限时间</string>

@@ -1,6 +1,5 @@
 package cn.misection.autoreport.ui.activity;
 
-import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
@@ -69,7 +68,7 @@ public class WebViewActivity extends AppCompatActivity {
         //如果不设置WebViewClient，请求会跳转系统浏览器
         mBinding.reportWebView.setWebViewClient(new WebViewClient() {
 
-            private int enterCount = 0;
+            private int enterLoginCount = 0;
 
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
@@ -79,14 +78,14 @@ public class WebViewActivity extends AppCompatActivity {
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
-                ++enterCount;
                 if (view.getUrl().equals(SwufePage.REPORT.getUrl())) {
                     if (BuildConfig.DEBUG) {
                         AppSystem.out.printt(WebViewActivity.this, "report branch");
                     }
                     evalSelectJs();
                 } else if (view.getUrl().contains(WebViewActivity.this.getString(R.string.swufe_auth_keyword))) {
-                    switch (enterCount) {
+                    ++enterLoginCount;
+                    switch (enterLoginCount) {
                         case 1:
                             alertDefault(WebViewActivity.this.getString(R.string.swufe_login_page_prompt));
                             break;
@@ -133,6 +132,11 @@ public class WebViewActivity extends AppCompatActivity {
             @Override
             public boolean onJsAlert(WebView view, String url, String message, JsResult result) {
                 return super.onJsAlert(view, url, message, result);
+            }
+
+            @Override
+            public boolean onJsConfirm(WebView view, String url, String message, JsResult result) {
+                return super.onJsConfirm(view, url, message, result);
             }
         });
     }
