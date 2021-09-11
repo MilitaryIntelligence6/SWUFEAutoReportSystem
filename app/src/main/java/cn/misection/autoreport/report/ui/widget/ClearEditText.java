@@ -1,4 +1,4 @@
-package cn.misection.autoreport.ui.widget;
+package cn.misection.autoreport.report.ui.widget;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;

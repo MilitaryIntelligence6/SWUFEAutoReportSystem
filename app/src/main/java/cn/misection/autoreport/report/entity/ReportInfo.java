@@ -1,8 +1,8 @@
-package cn.misection.autoreport.entity;
+package cn.misection.autoreport.report.entity;
 
 import java.io.Serializable;
 
-import cn.misection.autoreport.constant.Campus;
+import cn.misection.autoreport.common.constant.Campus;
 
 /**
  * @author Military Intelligence 6 root

@@ -6,11 +6,11 @@
 
         <variable
                 name="user"
-                type="cn.misection.autoreport.entity.SwufeUser" />
+                type="cn.misection.autoreport.report.entity.SwufeUser" />
 
         <variable
                 name="reportInfo"
-                type="cn.misection.autoreport.entity.ReportInfo" />
+                type="cn.misection.autoreport.report.entity.ReportInfo" />
 
     </data>
 
@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            tools:context=".ui.activity.ReportActivity">
+            tools:context=".report.ui.activity.ReportActivity">
 
         <androidx.core.widget.NestedScrollView
                 android:id="@+id/scroll_view"

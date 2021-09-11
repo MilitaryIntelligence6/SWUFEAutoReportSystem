@@ -1,4 +1,4 @@
-package cn.misection.autoreport.util.timeutil;
+package cn.misection.autoreport.common.util.timeutil;
 
 import java.util.Calendar;
 import java.util.HashMap;

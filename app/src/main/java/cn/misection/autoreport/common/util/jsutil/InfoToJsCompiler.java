@@ -1,9 +1,9 @@
-package cn.misection.autoreport.util.jsutil;
+package cn.misection.autoreport.common.util.jsutil;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.misection.autoreport.entity.ReportInfo;
+import cn.misection.autoreport.report.entity.ReportInfo;
 
 /**
  * @author Military Intelligence 6 root

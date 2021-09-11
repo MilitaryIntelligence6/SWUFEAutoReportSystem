@@ -1,4 +1,4 @@
-package cn.misection.autoreport.ui.activity;
+package cn.misection.autoreport.report.ui.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -17,14 +17,14 @@ import androidx.databinding.DataBindingUtil;
 import com.xuexiang.xui.XUI;
 
 import cn.misection.autoreport.R;
-import cn.misection.autoreport.constant.Campus;
-import cn.misection.autoreport.constant.IntentParam;
+import cn.misection.autoreport.common.constant.Campus;
+import cn.misection.autoreport.common.constant.IntentParam;
 import cn.misection.autoreport.databinding.ActivityReportBinding;
-import cn.misection.autoreport.entity.ReportInfo;
-import cn.misection.autoreport.entity.SwufeUser;
-import cn.misection.autoreport.util.stringutil.StringUtil;
-import cn.misection.autoreport.util.timeutil.HourMinuteUnit;
-import cn.misection.autoreport.util.uiutil.VisibilityChecker;
+import cn.misection.autoreport.report.entity.ReportInfo;
+import cn.misection.autoreport.report.entity.SwufeUser;
+import cn.misection.autoreport.common.util.stringutil.StringUtil;
+import cn.misection.autoreport.common.util.timeutil.HourMinuteUnit;
+import cn.misection.autoreport.common.util.uiutil.VisibilityChecker;
 
 /**
  * @author Administrator

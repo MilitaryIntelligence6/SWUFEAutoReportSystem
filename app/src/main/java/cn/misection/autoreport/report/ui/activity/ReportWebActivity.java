@@ -1,4 +1,4 @@
-package cn.misection.autoreport.ui.activity;
+package cn.misection.autoreport.report.ui.activity;
 
 import android.graphics.Bitmap;
 import android.os.Build;
@@ -21,10 +21,10 @@ import java.util.List;
 
 import cn.misection.autoreport.BuildConfig;
 import cn.misection.autoreport.R;
-import cn.misection.autoreport.constant.SwufePage;
+import cn.misection.autoreport.common.constant.SwufePage;
 import cn.misection.autoreport.databinding.ActivityReportWebBinding;
-import cn.misection.autoreport.entity.ReportInfo;
-import cn.misection.autoreport.util.jsutil.InfoToJsCompiler;
+import cn.misection.autoreport.report.entity.ReportInfo;
+import cn.misection.autoreport.common.util.jsutil.InfoToJsCompiler;
 import cn.misection.util.oututil.system.AppSystem;
 
 /**

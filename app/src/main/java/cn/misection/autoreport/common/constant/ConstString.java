@@ -1,4 +1,4 @@
-package cn.misection.autoreport.constant;
+package cn.misection.autoreport.common.constant;
 
 /**
  * @author Military Intelligence 6 root

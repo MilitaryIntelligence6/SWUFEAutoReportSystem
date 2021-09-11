@@ -1,4 +1,4 @@
-package cn.misection.autoreport.util.uiutil;
+package cn.misection.autoreport.common.util.uiutil;
 
 import android.view.View;
 import android.widget.RadioButton;

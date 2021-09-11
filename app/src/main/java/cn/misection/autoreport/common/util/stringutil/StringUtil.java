@@ -1,7 +1,6 @@
-package cn.misection.autoreport.util.stringutil;
+package cn.misection.autoreport.common.util.stringutil;
 
-import cn.misection.autoreport.R;
-import cn.misection.autoreport.constant.ConstString;
+import cn.misection.autoreport.common.constant.ConstString;
 
 /**
  * @author Military Intelligence 6 root

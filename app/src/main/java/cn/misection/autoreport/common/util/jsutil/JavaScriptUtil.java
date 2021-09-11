@@ -1,4 +1,4 @@
-package cn.misection.autoreport.util.jsutil;
+package cn.misection.autoreport.common.util.jsutil;
 
 /**
  * @author Military Intelligence 6 root

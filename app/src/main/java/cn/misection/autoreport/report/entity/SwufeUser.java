@@ -1,4 +1,4 @@
-package cn.misection.autoreport.entity;
+package cn.misection.autoreport.report.entity;
 
 import java.io.Serializable;
 
