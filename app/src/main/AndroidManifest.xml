@@ -20,9 +20,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.activity.WebViewActivity" />
+        <activity android:name=".ui.activity.ReportWebActivity" />
 
-        <activity android:name=".ui.activity.MainActivity">
+        <activity android:name=".ui.activity.ReportActivity">
 <!--            <intent-filter>-->
 <!--                <action android:name="android.intent.action.MAIN" />-->
 

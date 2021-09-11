@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.RadioGroup;
@@ -17,24 +16,22 @@ import androidx.databinding.DataBindingUtil;
 
 import com.xuexiang.xui.XUI;
 
-import cn.misection.autoreport.BuildConfig;
 import cn.misection.autoreport.R;
 import cn.misection.autoreport.constant.Campus;
 import cn.misection.autoreport.constant.IntentParam;
-import cn.misection.autoreport.databinding.ActivityMainBinding;
+import cn.misection.autoreport.databinding.ActivityReportBinding;
 import cn.misection.autoreport.entity.ReportInfo;
 import cn.misection.autoreport.entity.SwufeUser;
 import cn.misection.autoreport.util.stringutil.StringUtil;
 import cn.misection.autoreport.util.timeutil.HourMinuteUnit;
 import cn.misection.autoreport.util.uiutil.VisibilityChecker;
-import cn.misection.util.oututil.system.AppSystem;
 
 /**
  * @author Administrator
  */
-public class MainActivity extends AppCompatActivity {
+public class ReportActivity extends AppCompatActivity {
 
-    private ActivityMainBinding mBinding;
+    private ActivityReportBinding mBinding;
 
     private SwufeUser mUser;
 
@@ -46,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         XUI.initTheme(this);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_report);
         init();
     }
 
@@ -64,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initBinding() {
-        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_report);
         mPreferences = this.getPreferences(MODE_PRIVATE);
         mBinding.setReportInfo(mReportInfo);
         mBinding.setUser(mUser);
@@ -370,7 +367,7 @@ public class MainActivity extends AppCompatActivity {
         if (StringUtil.isNullOrEmpty(mReportInfo.getReason())) {
             mReportInfo.setReason(getString(R.string.default_reason_hint));
         }
-        Intent intent = new Intent(this, WebViewActivity.class);
+        Intent intent = new Intent(this, ReportWebActivity.class);
         intent.putExtra(IntentParam.REPORT_INFO.getKey(), mReportInfo);
         startActivity(intent);
     }

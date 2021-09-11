@@ -22,7 +22,7 @@ import java.util.List;
 import cn.misection.autoreport.BuildConfig;
 import cn.misection.autoreport.R;
 import cn.misection.autoreport.constant.SwufePage;
-import cn.misection.autoreport.databinding.ActivityWebViewBinding;
+import cn.misection.autoreport.databinding.ActivityReportWebBinding;
 import cn.misection.autoreport.entity.ReportInfo;
 import cn.misection.autoreport.util.jsutil.InfoToJsCompiler;
 import cn.misection.util.oututil.system.AppSystem;
@@ -30,15 +30,15 @@ import cn.misection.util.oututil.system.AppSystem;
 /**
  * @author Administrator
  */
-public class WebViewActivity extends AppCompatActivity {
+public class ReportWebActivity extends AppCompatActivity {
 
-    private ActivityWebViewBinding mBinding;
+    private ActivityReportWebBinding mBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         XUI.initTheme(this);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_web_view);
+        setContentView(R.layout.activity_report_web);
         init();
     }
 
@@ -49,7 +49,7 @@ public class WebViewActivity extends AppCompatActivity {
     }
 
     private void initBinding() {
-        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_web_view);
+        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_report_web);
     }
 
     private void initWebViewSetting() {
@@ -80,23 +80,23 @@ public class WebViewActivity extends AppCompatActivity {
                 super.onPageFinished(view, url);
                 if (view.getUrl().equals(SwufePage.REPORT.getUrl())) {
                     if (BuildConfig.DEBUG) {
-                        AppSystem.out.printt(WebViewActivity.this, "report branch");
+                        AppSystem.out.printt(ReportWebActivity.this, "report branch");
                     }
                     evalSelectJs();
-                } else if (view.getUrl().contains(WebViewActivity.this.getString(R.string.swufe_auth_keyword))) {
+                } else if (view.getUrl().contains(ReportWebActivity.this.getString(R.string.swufe_auth_keyword))) {
                     ++enterLoginCount;
                     switch (enterLoginCount) {
                         case 1:
-                            alertDefault(WebViewActivity.this.getString(R.string.swufe_login_page_prompt));
+                            alertDefault(ReportWebActivity.this.getString(R.string.swufe_login_page_prompt));
                             break;
                         default:
-                            alertDefault(WebViewActivity.this.getString(R.string.swufe_reenter_login_page_prompt));
+                            alertDefault(ReportWebActivity.this.getString(R.string.swufe_reenter_login_page_prompt));
                             break;
                     }
                 } else {
                     if (BuildConfig.DEBUG) {
-                        AppSystem.out.printt(WebViewActivity.this, "else branch");
-                        AppSystem.out.printt(WebViewActivity.this, view.getUrl());
+                        AppSystem.out.printt(ReportWebActivity.this, "else branch");
+                        AppSystem.out.printt(ReportWebActivity.this, view.getUrl());
                     }
                     Log.e(getClass().getName(), view.getUrl());
                 }
@@ -146,7 +146,7 @@ public class WebViewActivity extends AppCompatActivity {
     }
 
     private void alertDefault(String msg) {
-        new AlertDialog.Builder(WebViewActivity.this)
+        new AlertDialog.Builder(ReportWebActivity.this)
                 .setTitle(getString(R.string.tips))
                 .setMessage(msg)
                 .setIcon(R.mipmap.ic_my_launcher_round)

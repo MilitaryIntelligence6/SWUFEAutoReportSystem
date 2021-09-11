@@ -32,7 +32,7 @@ public class SplashActivity extends AppCompatActivity {
 
     private void splash() {
         mHandler.postDelayed(() -> {
-            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+            Intent intent = new Intent(SplashActivity.this, ReportActivity.class);
             startActivity(intent);
             SplashActivity.this.finish();
         }, SPLASH_DISPLAY_TIME);
