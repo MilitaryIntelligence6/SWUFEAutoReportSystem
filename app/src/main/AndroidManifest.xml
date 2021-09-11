@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
         package="cn.misection.autoreport">
-
-    <!--    联网权限-->
+    <!-- 联网权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
 
-
-    <!--    android:usesCleartextTraffic="true"为防止浏览器加载错误-->
     <application
             android:allowBackup="true"
             android:icon="@mipmap/ic_my_launcher"
@@ -14,9 +11,12 @@
             android:roundIcon="@mipmap/ic_my_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.SWUFEAutoReportSystem"
-            android:usesCleartextTraffic="true"
-            >
-        <activity android:name=".ui.activity.WebViewActivity"></activity>
+            android:usesCleartextTraffic="true">
+
+        <activity android:name=".ui.activity.SplashActivity" />
+
+        <activity android:name=".ui.activity.WebViewActivity" />
+
         <activity android:name=".ui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
