@@ -1,4 +1,4 @@
-package cn.misection.autoreport.ui.activity;
+package cn.misection.autoreport.splash.ui.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.os.Looper;
 
 import cn.misection.autoreport.R;
+import cn.misection.autoreport.ui.activity.ReportActivity;
 
 /**
  * @author Administrator
@@ -32,9 +33,9 @@ public class SplashActivity extends AppCompatActivity {
 
     private void splash() {
         mHandler.postDelayed(() -> {
-            Intent intent = new Intent(SplashActivity.this, ReportActivity.class);
+            Intent intent = new Intent(this, ReportActivity.class);
             startActivity(intent);
-            SplashActivity.this.finish();
+            finish();
         }, SPLASH_DISPLAY_TIME);
     }
 }

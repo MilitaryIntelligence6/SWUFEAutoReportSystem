@@ -12,7 +12,7 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.SWUFEAutoReportSystem"
             android:usesCleartextTraffic="true">
-        <activity android:name=".ui.activity.SplashActivity">
+        <activity android:name=".splash.ui.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,13 +22,7 @@
 
         <activity android:name=".ui.activity.ReportWebActivity" />
 
-        <activity android:name=".ui.activity.ReportActivity">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-        </activity>
+        <activity android:name=".ui.activity.ReportActivity" />
     </application>
 
 </manifest>
