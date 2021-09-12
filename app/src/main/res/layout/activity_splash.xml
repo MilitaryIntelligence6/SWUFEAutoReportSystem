@@ -11,6 +11,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@mipmap/ic_my_launcher"
-            tools:context=".splash.ui.activity.SplashActivity">
+            tools:context=".splash.controller.SplashActivity">
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

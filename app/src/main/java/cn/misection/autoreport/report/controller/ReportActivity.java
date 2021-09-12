@@ -1,4 +1,4 @@
-package cn.misection.autoreport.report.ui.activity;
+package cn.misection.autoreport.report.controller;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.RadioGroup;
@@ -19,12 +20,13 @@ import com.xuexiang.xui.XUI;
 import cn.misection.autoreport.R;
 import cn.misection.autoreport.common.constant.Campus;
 import cn.misection.autoreport.common.constant.IntentParam;
-import cn.misection.autoreport.databinding.ActivityReportBinding;
-import cn.misection.autoreport.report.entity.ReportInfo;
-import cn.misection.autoreport.report.entity.SwufeUser;
 import cn.misection.autoreport.common.util.stringutil.StringUtil;
 import cn.misection.autoreport.common.util.timeutil.HourMinuteUnit;
 import cn.misection.autoreport.common.util.uiutil.VisibilityChecker;
+import cn.misection.autoreport.databinding.ActivityReportBinding;
+import cn.misection.autoreport.report.entity.ReportInfo;
+import cn.misection.autoreport.report.entity.SwufeUser;
+import cn.misection.util.oututil.system.AppSystem;
 
 /**
  * @author Administrator
@@ -39,6 +41,8 @@ public class ReportActivity extends AppCompatActivity {
 
     private SharedPreferences mPreferences;
 
+    private long mLastExitTime;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         XUI.initTheme(this);
@@ -51,6 +55,15 @@ public class ReportActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         flushStartTimePicker();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+            dispatchExitEvent();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
     private void init() {
@@ -373,6 +386,17 @@ public class ReportActivity extends AppCompatActivity {
     }
 
     private void savePreferences() {
+        SharedPreferences.Editor edit = mPreferences.edit();
+//        edit.putString(ReportPreferences.CAMPUS.getKey(), mReportInfo.);
+    }
 
+    private void dispatchExitEvent() {
+        if ((System.currentTimeMillis() - mLastExitTime) > 2000) {
+            AppSystem.out.printt(this, "再按一次返回键退出 App");
+            mLastExitTime = System.currentTimeMillis();
+        } else {
+            AppSystem.out.printt(this, "Bye!");
+            finish();
+        }
     }
 }

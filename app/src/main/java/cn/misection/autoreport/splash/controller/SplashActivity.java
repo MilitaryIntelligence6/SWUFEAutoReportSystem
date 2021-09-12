@@ -1,4 +1,4 @@
-package cn.misection.autoreport.splash.ui.activity;
+package cn.misection.autoreport.splash.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,7 +8,7 @@ import android.os.Handler;
 import android.os.Looper;
 
 import cn.misection.autoreport.R;
-import cn.misection.autoreport.report.ui.activity.ReportActivity;
+import cn.misection.autoreport.report.controller.ReportActivity;
 
 /**
  * @author Administrator

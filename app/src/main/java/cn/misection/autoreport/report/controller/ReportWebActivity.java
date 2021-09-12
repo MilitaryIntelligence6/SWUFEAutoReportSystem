@@ -1,4 +1,4 @@
-package cn.misection.autoreport.report.ui.activity;
+package cn.misection.autoreport.report.controller;
 
 import android.graphics.Bitmap;
 import android.os.Build;
