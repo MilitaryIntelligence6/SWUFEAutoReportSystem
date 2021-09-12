@@ -46,4 +46,6 @@
     <string name="default_findjob_literal">找工作</string>
     <string name="default_study_lteral">悟道</string>
 
+    <string name="sample_device_admin_description">我的广播</string>
+    <string name="sample_device_admin">广播接收者</string>
 </resources>
