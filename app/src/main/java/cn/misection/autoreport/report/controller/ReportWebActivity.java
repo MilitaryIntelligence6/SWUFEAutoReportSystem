@@ -1,5 +1,6 @@
 package cn.misection.autoreport.report.controller;
 
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
@@ -151,7 +152,7 @@ public class ReportWebActivity extends AppCompatActivity {
                 .setMessage(msg)
                 .setIcon(R.mipmap.ic_my_launcher_round)
                 .setPositiveButton(getString(R.string.sure),
-                        (dialog, which) -> AppSystem.out.prints(mBinding.reportWebView,
+                        (DialogInterface dialog, int which) -> AppSystem.out.prints(mBinding.reportWebView,
                                 getString(R.string.swufe_login_snackbar_prompt)))
                 .create()
                 .show();
