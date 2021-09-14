@@ -9,4 +9,4 @@ document.getElementById("qjmdd").value = "东门;";
 // 出行方式;
 document.getElementById("qjxc").value = "步行;";
 // 理由;
-document.getElementById("qjyy").value = "学好 Java C++, 走遍天下都不怕;\n掌握计网与算法, 面过腾讯也称霸;";
+document.getElementById("qjyy").value = "学好 Java C++, 走遍天下都不怕;\n掌握计网与算法, 面遍硅谷皆称霸;";
