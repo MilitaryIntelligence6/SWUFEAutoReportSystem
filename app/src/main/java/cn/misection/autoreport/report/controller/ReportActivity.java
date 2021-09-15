@@ -33,14 +33,31 @@ import cn.misection.util.oututil.system.AppSystem;
  */
 public class ReportActivity extends AppCompatActivity {
 
+    /**
+     * binding;
+     */
     private ActivityReportBinding mBinding;
 
+    /**
+     * 西财用户;
+     */
     private SwufeUser mUser;
 
+    /**
+     * 上报表单实体;
+     *
+     */
+    // TODO: 9/13/21 应该做成 request
     private ReportInfo mReportInfo;
 
+    /**
+     * 用户配资;
+     */
     private SharedPreferences mPreferences;
 
+    /**
+     * 上次点击退出时间;
+     */
     private long mLastExitTime;
 
     @Override
