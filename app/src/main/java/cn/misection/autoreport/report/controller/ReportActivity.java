@@ -45,9 +45,8 @@ public class ReportActivity extends AppCompatActivity {
 
     /**
      * 上报表单实体;
-     *
+     * TODO: 9/13/21 应该做成 request
      */
-    // TODO: 9/13/21 应该做成 request
     private ReportInfo mReportInfo;
 
     /**
