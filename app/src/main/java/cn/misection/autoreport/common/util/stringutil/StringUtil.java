@@ -20,4 +20,10 @@ public class StringUtil {
                 || string.equals(ConstString.EMPTY.value())
                 || string.equals(ConstString.NULL.value());
     }
+
+    public static String safeStringOf(String string) {
+        return string == null
+                ? ""
+                : string;
+    }
 }

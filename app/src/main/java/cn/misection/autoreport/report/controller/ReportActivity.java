@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.RadioGroup;
@@ -84,6 +83,7 @@ public class ReportActivity extends AppCompatActivity {
         initUI();
         initActionListener();
     }
+
 
     private void initBinding() {
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_report);
@@ -283,7 +283,8 @@ public class ReportActivity extends AppCompatActivity {
                         default:
                             break;
                     }
-                });
+                }
+        );
 
         mBinding.startTimePicker.setOnTimeChangedListener(
                 (TimePicker view, int hourOfDay, int minute) -> {
