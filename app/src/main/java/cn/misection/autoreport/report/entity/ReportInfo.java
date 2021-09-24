@@ -2,7 +2,7 @@ package cn.misection.autoreport.report.entity;
 
 import java.io.Serializable;
 
-import cn.misection.autoreport.common.constant.Campus;
+import cn.misection.autoreport.common.constant.EnumCampus;
 
 /**
  * @author Military Intelligence 6 root
@@ -16,7 +16,7 @@ public class ReportInfo implements Serializable {
     /**
      * 校区;
      */
-    private Campus campus;
+    private EnumCampus campus;
 
     /**
      * 外出时间;
@@ -51,7 +51,7 @@ public class ReportInfo implements Serializable {
     private ReportInfo() {
     }
 
-    private ReportInfo(Campus campus,
+    private ReportInfo(EnumCampus campus,
                        String startTime,
                        String endTime,
                        String duration,
@@ -71,7 +71,7 @@ public class ReportInfo implements Serializable {
         /**
          * 校区;
          */
-        private Campus campus;
+        private EnumCampus campus;
 
         /**
          * 外出时间;
@@ -118,7 +118,7 @@ public class ReportInfo implements Serializable {
             return reportInfo;
         }
 
-        public Builder setCampus(Campus campus) {
+        public Builder setCampus(EnumCampus campus) {
             this.campus = campus;
             return this;
         }
@@ -154,11 +154,11 @@ public class ReportInfo implements Serializable {
         }
     }
 
-    public Campus getCampus() {
+    public EnumCampus getCampus() {
         return campus;
     }
 
-    public void setCampus(Campus campus) {
+    public void setCampus(EnumCampus campus) {
         this.campus = campus;
     }
 

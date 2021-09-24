@@ -17,7 +17,7 @@ import androidx.databinding.DataBindingUtil;
 import com.xuexiang.xui.XUI;
 
 import cn.misection.autoreport.R;
-import cn.misection.autoreport.common.constant.Campus;
+import cn.misection.autoreport.common.constant.EnumCampus;
 import cn.misection.autoreport.common.constant.IntentParam;
 import cn.misection.autoreport.common.util.stringutil.StringUtil;
 import cn.misection.autoreport.common.util.timeutil.HourMinuteUnit;
@@ -180,10 +180,10 @@ public class ReportActivity extends AppCompatActivity {
                 (RadioGroup group, int checkedId) -> {
                     switch (checkedId) {
                         case R.id.campus_liulin_radio_button:
-                            mReportInfo.setCampus(Campus.LIU_LIN);
+                            mReportInfo.setCampus(EnumCampus.LIU_LIN);
                             break;
                         case R.id.campus_guanghua_radio_button:
-                            mReportInfo.setCampus(Campus.GUANG_HUA);
+                            mReportInfo.setCampus(EnumCampus.GUANG_HUA);
                             break;
                         default:
                             break;
@@ -376,7 +376,7 @@ public class ReportActivity extends AppCompatActivity {
             return;
         }
         if (mReportInfo.getCampus() == null) {
-            mReportInfo.setCampus(Campus.LIU_LIN);
+            mReportInfo.setCampus(EnumCampus.LIU_LIN);
         }
         if (StringUtil.isNullOrEmpty(mReportInfo.getStartTime())) {
             mReportInfo.setStartTime(HourMinuteUnit.timePrevMinutesUnit(1).toFormatString());
