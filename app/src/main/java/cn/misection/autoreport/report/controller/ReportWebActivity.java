@@ -37,7 +37,6 @@ public class ReportWebActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        XUI.initTheme(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report_web);
         init();

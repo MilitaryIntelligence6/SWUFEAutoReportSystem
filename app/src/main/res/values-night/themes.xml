@@ -1,6 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.SWUFEAutoReportSystem" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+<!--    <style name="Theme.SWUFEAutoReportSystem" parent="Theme.MaterialComponents.DayNight.DarkActionBar">-->
+    <style name="Theme.SWUFEAutoReportSystem" parent="XUITheme.Phone">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_200</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>

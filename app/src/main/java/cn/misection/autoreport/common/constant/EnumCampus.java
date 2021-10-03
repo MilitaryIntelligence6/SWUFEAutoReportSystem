@@ -1,5 +1,9 @@
 package cn.misection.autoreport.common.constant;
 
+import androidx.annotation.IdRes;
+
+import cn.misection.autoreport.R;
+
 /**
  * @author Military Intelligence 6 root
  * @version 1.0.0
@@ -12,27 +16,29 @@ public enum EnumCampus {
     /**
      * 柳林校区;
      */
-    LIU_LIN("柳林校区"),
+    LIU_LIN(R.id.campus_liulin_radio_button, "柳林校区"),
 
     /**
      * 光华校区;
      */
-    GUANG_HUA("光华校区"),
-
-    /**
-     * 用户自定义;
-     */
-    CUSTOM(ConstString.EMPTY.value()),
+    GUANG_HUA(R.id.campus_guanghua_radio_button, "光华校区"),
     ;
+
+    private final @IdRes int resId;
 
     private final String chineseValue;
 
-    EnumCampus(String chineseValue) {
+    EnumCampus(@IdRes int resId, String chineseValue) {
+        this.resId = resId;
         this.chineseValue = chineseValue;
     }
 
     public String getChineseValue() {
         return chineseValue;
+    }
+
+    public int getResId() {
+        return resId;
     }
 
     public static EnumCampus selectByOrdinal(int ordinal) {

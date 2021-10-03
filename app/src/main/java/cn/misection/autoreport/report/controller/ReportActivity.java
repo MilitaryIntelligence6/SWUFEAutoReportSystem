@@ -11,6 +11,7 @@ import android.widget.CompoundButton;
 import android.widget.RadioGroup;
 import android.widget.TimePicker;
 
+import androidx.annotation.IdRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
@@ -60,7 +61,6 @@ public class ReportActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        XUI.initTheme(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report);
         init();
