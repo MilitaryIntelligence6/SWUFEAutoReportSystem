@@ -12,25 +12,22 @@ import cn.misection.autoreport.report.entity.ReportInfo;
  * @Description TODO
  * @CreateTime 2021年09月07日 17:58:00
  */
-public class InfoToJsCompiler {
+public class InfoJavaScriptList extends ArrayList<String>{
 
     private ReportInfo info;
 
-    private List<String> scriptList;
-
-    public InfoToJsCompiler(ReportInfo info) {
+    public InfoJavaScriptList(ReportInfo info) {
         this.info = info;
         init();
     }
 
     private void init() {
-        scriptList = new ArrayList<>();
-        scriptList.add(documentSetElementByIdIntSelectedIndex("szxq", String.valueOf(info.getCampus().ordinal())));
-        scriptList.add(documentSetElementByIdStringValue("sbDate", info.getStartTime()));
-        scriptList.add(documentSetElementByIdStringValue("edDate", info.getEndTime()));
-        scriptList.add(documentSetElementByIdStringValue("qjmdd", info.getDestination()));
-        scriptList.add(documentSetElementByIdStringValue("qjxc", info.getTransportation()));
-        scriptList.add(documentSetElementByIdStringValue("qjyy", info.getReason()));
+        add(documentSetElementByIdIntSelectedIndex("szxq", String.valueOf(info.getCampus().ordinal())));
+        add(documentSetElementByIdStringValue("sbDate", info.getStartTime()));
+        add(documentSetElementByIdStringValue("edDate", info.getEndTime()));
+        add(documentSetElementByIdStringValue("qjmdd", info.getDestination()));
+        add(documentSetElementByIdStringValue("qjxc", info.getTransportation()));
+        add(documentSetElementByIdStringValue("qjyy", info.getReason()));
     }
 
     private String documentSetElementByIdIntSelectedIndex(String id, String value) {
@@ -44,9 +41,5 @@ public class InfoToJsCompiler {
         return String.format(
                 "document.getElementById(\"%s\").value = \"%s\";\n",
                 id, value);
-    }
-
-    public List<String> getScriptList() {
-        return scriptList;
     }
 }

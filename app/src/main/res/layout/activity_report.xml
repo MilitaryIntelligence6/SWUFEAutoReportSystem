@@ -6,11 +6,11 @@
 
         <variable
                 name="user"
-                type="cn.misection.autoreport.report.entity.SwufeUser" />
+                type="cn.misection.autoreport.report.entity.SwufeUser"/>
 
         <variable
                 name="reportInfo"
-                type="cn.misection.autoreport.report.entity.ReportInfo" />
+                type="cn.misection.autoreport.report.entity.ReportInfo"/>
 
     </data>
 
@@ -35,7 +35,7 @@
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="match_parent"
-                        android:layout_height="5dp" />
+                        android:layout_height="5dp"/>
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="match_parent"
@@ -48,7 +48,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="0.3"
                             android:gravity="center"
-                            android:text="@string/swufe_username_literal" />
+                            android:text="@string/swufe_username_literal"/>
 
                     <com.xuexiang.xui.widget.edittext.ClearEditText
                             android:id="@+id/username_et"
@@ -59,7 +59,7 @@
                             android:hint="@string/swufe_username_password_hint"
                             android:inputType="textMultiLine"
                             android:maxLines="20"
-                            android:text="@{user.getUsername()}" />
+                            android:text="@{user.getUsername()}"/>
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <androidx.appcompat.widget.LinearLayoutCompat
@@ -73,7 +73,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="0.3"
                             android:gravity="center"
-                            android:text="@string/swufe_password_literal" />
+                            android:text="@string/swufe_password_literal"/>
 
                     <com.xuexiang.xui.widget.edittext.PasswordEditText
                             android:id="@+id/password_et"
@@ -83,7 +83,7 @@
                             android:background="@drawable/edit_text_round_bg"
                             android:hint="@string/swufe_username_password_hint"
                             android:inputType="textMultiLine"
-                            android:maxLines="20" />
+                            android:maxLines="20"/>
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <androidx.appcompat.widget.LinearLayoutCompat
@@ -97,7 +97,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="0.3"
                             android:gravity="center"
-                            android:text="@string/campus_literal" />
+                            android:text="@string/campus_literal"/>
 
                     <RadioGroup
                             android:id="@+id/campus_radio_group"
@@ -112,14 +112,14 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.5"
                                 android:checked="true"
-                                android:text="@string/campus_liulin" />
+                                android:text="@string/campus_liulin"/>
 
                         <androidx.appcompat.widget.AppCompatRadioButton
                                 android:id="@+id/campus_guanghua_radio_button"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.5"
-                                android:text="@string/campus_guanghua" />
+                                android:text="@string/campus_guanghua"/>
                     </RadioGroup>
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -134,7 +134,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="0.3"
                             android:gravity="center"
-                            android:text="@string/start_time_literal" />
+                            android:text="@string/start_time_literal"/>
 
                     <RadioGroup
                             android:id="@+id/start_time_radio_group"
@@ -149,14 +149,14 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.5"
                                 android:checked="true"
-                                android:text="@string/one_min_ago_start_literal" />
+                                android:text="@string/one_min_ago_start_literal"/>
 
                         <androidx.appcompat.widget.AppCompatRadioButton
                                 android:id="@+id/start_time_show_custom_radio_button"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.5"
-                                android:text="@string/custom_literal" />
+                                android:text="@string/custom_literal"/>
                     </RadioGroup>
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -176,14 +176,14 @@
                             android:layout_height="match_parent"
                             android:layout_weight="0.3"
                             android:gravity="center"
-                            android:text="@string/custom_start_time_literal" />
+                            android:text="@string/custom_start_time_literal"/>
 
                     <TimePicker
                             android:id="@+id/start_time_picker"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="0.7"
-                            android:timePickerMode="spinner" />
+                            android:timePickerMode="spinner"/>
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
 
@@ -199,7 +199,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="0.3"
                             android:gravity="center"
-                            android:text="@string/end_time_literal" />
+                            android:text="@string/end_time_literal"/>
 
                     <RadioGroup
                             android:id="@+id/end_time_radio_group"
@@ -214,14 +214,14 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.5"
                                 android:checked="true"
-                                android:text="@string/default_end_time_literal" />
+                                android:text="@string/default_end_time_literal"/>
 
                         <androidx.appcompat.widget.AppCompatRadioButton
                                 android:id="@+id/end_time_show_custom_radio_button"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.5"
-                                android:text="@string/custom_literal" />
+                                android:text="@string/custom_literal"/>
                     </RadioGroup>
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -239,14 +239,14 @@
                             android:layout_height="match_parent"
                             android:layout_weight="0.3"
                             android:gravity="center"
-                            android:text="@string/custom_end_time_literal" />
+                            android:text="@string/custom_end_time_literal"/>
 
                     <TimePicker
                             android:id="@+id/end_time_picker"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="0.7"
-                            android:timePickerMode="spinner" />
+                            android:timePickerMode="spinner"/>
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <androidx.appcompat.widget.LinearLayoutCompat
@@ -260,7 +260,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="0.3"
                             android:gravity="center"
-                            android:text="@string/destination_literal" />
+                            android:text="@string/destination_literal"/>
 
                     <RadioGroup
                             android:id="@+id/destination_radio_group"
@@ -274,7 +274,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.25"
-                                android:text="@string/default_destination_east" />
+                                android:text="@string/default_destination_east"/>
 
 
                         <androidx.appcompat.widget.AppCompatRadioButton
@@ -282,14 +282,14 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.25"
-                                android:text="@string/default_destination_west" />
+                                android:text="@string/default_destination_west"/>
 
                         <androidx.appcompat.widget.AppCompatRadioButton
                                 android:id="@+id/default_destination_canyon_radio_button"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.25"
-                                android:text="@string/default_destination_canyon" />
+                                android:text="@string/default_destination_canyon"/>
 
                         <androidx.appcompat.widget.AppCompatRadioButton
                                 android:id="@+id/destination_show_custom_radio_button"
@@ -297,7 +297,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.25"
                                 android:checked="true"
-                                android:text="@string/custom_literal" />
+                                android:text="@string/custom_literal"/>
                     </RadioGroup>
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -315,7 +315,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="0.3"
                             android:gravity="center"
-                            android:text="@string/custom_destination_literal" />
+                            android:text="@string/custom_destination_literal"/>
 
                     <com.xuexiang.xui.widget.edittext.ClearEditText
                             android:id="@+id/custom_destination_et"
@@ -326,7 +326,7 @@
                             android:hint="@string/default_destination_hint"
                             android:textColorHint="@color/xui_config_color_gray_5"
                             android:inputType="textMultiLine"
-                            android:maxLines="20" />
+                            android:maxLines="20"/>
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <androidx.appcompat.widget.LinearLayoutCompat
@@ -340,7 +340,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="0.3"
                             android:gravity="center"
-                            android:text="@string/transportation_literal" />
+                            android:text="@string/transportation_literal"/>
 
                     <RadioGroup
                             android:id="@+id/transportation_radio_group"
@@ -354,21 +354,21 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.25"
-                                android:text="@string/default_transportation_walk" />
+                                android:text="@string/default_transportation_walk"/>
 
                         <androidx.appcompat.widget.AppCompatRadioButton
                                 android:id="@+id/default_transportation_bike_radio_button"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.25"
-                                android:text="@string/default_transportation_bike" />
+                                android:text="@string/default_transportation_bike"/>
 
                         <androidx.appcompat.widget.AppCompatRadioButton
                                 android:id="@+id/default_transportation_fly_radio_button"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.25"
-                                android:text="@string/default_transportation_fly" />
+                                android:text="@string/default_transportation_fly"/>
 
                         <androidx.appcompat.widget.AppCompatRadioButton
                                 android:id="@+id/transportation_show_custom_radio_button"
@@ -376,7 +376,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.25"
                                 android:checked="true"
-                                android:text="@string/custom_literal" />
+                                android:text="@string/custom_literal"/>
                     </RadioGroup>
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -394,7 +394,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="0.3"
                             android:gravity="center"
-                            android:text="@string/custom_transportation_literal" />
+                            android:text="@string/custom_transportation_literal"/>
 
                     <com.xuexiang.xui.widget.edittext.ClearEditText
                             android:id="@+id/custom_transportation_et"
@@ -405,7 +405,7 @@
                             android:hint="@string/default_transportation_hint"
                             android:textColorHint="@color/xui_config_color_gray_5"
                             android:inputType="textMultiLine"
-                            android:maxLines="20" />
+                            android:maxLines="20"/>
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -420,7 +420,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="0.3"
                             android:gravity="center"
-                            android:text="@string/reason_literal" />
+                            android:text="@string/reason_literal"/>
 
                     <RadioGroup
                             android:id="@+id/reason_radio_group"
@@ -434,21 +434,21 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.25"
-                                android:text="@string/default_eat_literal" />
+                                android:text="@string/default_eat_literal"/>
 
                         <androidx.appcompat.widget.AppCompatRadioButton
                                 android:id="@+id/default_reason_findjob_radio_button"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.25"
-                                android:text="@string/default_findjob_literal" />
+                                android:text="@string/default_findjob_literal"/>
 
                         <androidx.appcompat.widget.AppCompatRadioButton
                                 android:id="@+id/default_reason_random_radio_button"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.25"
-                                android:text="@string/default_study_lteral" />
+                                android:text="@string/default_study_lteral"/>
 
                         <androidx.appcompat.widget.AppCompatRadioButton
                                 android:id="@+id/reason_show_custom_radio_button"
@@ -456,7 +456,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.25"
                                 android:checked="true"
-                                android:text="@string/custom_literal" />
+                                android:text="@string/custom_literal"/>
                     </RadioGroup>
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -474,7 +474,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="0.3"
                             android:gravity="center"
-                            android:text="@string/custom_reason_literal" />
+                            android:text="@string/custom_reason_literal"/>
 
                     <com.xuexiang.xui.widget.edittext.ClearEditText
                             android:id="@+id/custom_reason_et"
@@ -485,7 +485,7 @@
                             android:hint="@string/default_reason_hint"
                             android:textColorHint="@color/xui_config_color_gray_5"
                             android:inputType="textMultiLine"
-                            android:maxLines="20" />
+                            android:maxLines="20"/>
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <androidx.appcompat.widget.LinearLayoutCompat
@@ -498,13 +498,13 @@
                             android:id="@+id/submit_directly_check_box"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:layout_gravity="center" />
+                            android:layout_gravity="center"/>
 
                     <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center_vertical"
-                            android:text="@string/submit_directly_literal" />
+                            android:text="@string/submit_directly_literal"/>
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <androidx.appcompat.widget.LinearLayoutCompat
@@ -519,13 +519,13 @@
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:layout_gravity="center"
-                            android:checked="true" />
+                            android:checked="true"/>
 
                     <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center_vertical"
-                            android:text="@string/law_risk_declaration" />
+                            android:text="@string/law_risk_declaration"/>
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
             </androidx.appcompat.widget.LinearLayoutCompat>
@@ -539,7 +539,8 @@
                 android:layout_weight="0.125"
                 android:enabled="true"
                 android:onClick="onSubmitButtonClicked"
-                android:text="@string/one_key_to_report" />
+                android:text="@string/one_key_to_report"
+                android:textSize="22sp"/>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 </layout>

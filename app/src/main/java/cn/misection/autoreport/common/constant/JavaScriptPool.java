@@ -22,7 +22,7 @@ public class JavaScriptPool {
                     "    // 出行方式;\n" +
                     "    document.getElementById(\"qjxc\").value = \"步行;\";\n" +
                     "    // 理由;\n" +
-                    "    document.getElementById(\"qjyy\").value = \"学好 Java C++, 走遍天下都不怕;\\n掌握计网与算法, 面遍硅谷我称霸;\";\n" +
+                    "    document.getElementById(\"qjyy\").value = \"学好 Java C++, 走遍天下都不怕;\\n掌握计网懂算法, 面遍硅谷我称霸;\";\n" +
                     "})()";
 
     private JavaScriptPool() {

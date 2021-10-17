@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
@@ -16,8 +17,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import com.xuexiang.xui.XUI;
-
 import java.util.List;
 
 import cn.misection.autoreport.BuildConfig;
@@ -25,7 +24,7 @@ import cn.misection.autoreport.R;
 import cn.misection.autoreport.common.constant.SwufePage;
 import cn.misection.autoreport.databinding.ActivityReportWebBinding;
 import cn.misection.autoreport.report.entity.ReportInfo;
-import cn.misection.autoreport.common.util.jsutil.InfoToJsCompiler;
+import cn.misection.autoreport.common.util.jsutil.InfoJavaScriptList;
 import cn.misection.util.oututil.system.AppSystem;
 
 /**
@@ -82,7 +81,9 @@ public class ReportWebActivity extends AppCompatActivity {
                     if (BuildConfig.DEBUG) {
                         AppSystem.out.printt(ReportWebActivity.this, "report branch");
                     }
+                    mBinding.webViewSubmitButton.setVisibility(View.VISIBLE);
                     evalSelectJs();
+                    mBinding.webViewSubmitButton.setEnabled(true);
                 } else if (view.getUrl().contains(ReportWebActivity.this.getString(R.string.swufe_auth_keyword))) {
                     ++enterLoginCount;
                     switch (enterLoginCount) {
@@ -159,9 +160,14 @@ public class ReportWebActivity extends AppCompatActivity {
 
     private void evalSelectJs() {
         ReportInfo reportInfo = (ReportInfo) getIntent().getExtras().getSerializable(getString(R.string.activity_param_key));
-        List<String> scriptList = new InfoToJsCompiler(reportInfo).getScriptList();
+        List<String> scriptList = new InfoJavaScriptList(reportInfo);
         for (String script : scriptList) {
             mBinding.reportWebView.evaluateJavascript(script, null);
         }
+    }
+
+    public void onWebViewSubmitButtonClicked(View view) {
+        mBinding.reportWebView.evaluateJavascript(
+                getString(R.string.click_web_view_submit), null);
     }
 }

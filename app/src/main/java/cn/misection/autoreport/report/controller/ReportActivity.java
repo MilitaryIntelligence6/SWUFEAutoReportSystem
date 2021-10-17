@@ -50,7 +50,7 @@ public class ReportActivity extends AppCompatActivity {
     private ReportInfo mReportInfo;
 
     /**
-     * 用户配资;
+     * 用户配置;
      */
     private SharedPreferences mPreferences;
 
@@ -83,7 +83,6 @@ public class ReportActivity extends AppCompatActivity {
         initUI();
         initActionListener();
     }
-
 
     private void initBinding() {
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_report);

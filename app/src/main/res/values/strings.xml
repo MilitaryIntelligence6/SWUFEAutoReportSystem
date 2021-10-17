@@ -19,7 +19,7 @@
     <!--    default hint value-->
     <string name="default_destination_hint">东门;</string>
     <string name="default_transportation_hint">步行, 简简单单恰个饭;</string>
-    <string name="default_reason_hint">学好 Java C++, 走遍天下都不怕;\\n掌握计网与算法, 面遍硅谷我称霸;</string>
+    <string name="default_reason_hint">学好 Java C++, 走遍天下都不怕;\\n掌握计网懂算法, 面遍硅谷我称霸;</string>
     <!--end default hint value-->
 
     <string name="swufe_username_password_hint">可不输, 输后需登录时帮你自动填账号密码</string>
@@ -48,4 +48,6 @@
 
     <string name="sample_device_admin_description">我的广播</string>
     <string name="sample_device_admin">广播接收者</string>
+    <string name="click_web_view_submit">document.getElementById(\"btnstuapply\").click()</string>
+    <string name="click_to_submit_on_web_view_page">点击提交打卡</string>
 </resources>
