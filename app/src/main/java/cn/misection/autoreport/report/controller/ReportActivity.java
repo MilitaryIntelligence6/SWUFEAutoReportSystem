@@ -192,7 +192,7 @@ public class ReportActivity extends AppCompatActivity {
 
         mBinding.startTimeRadioGroup.setOnCheckedChangeListener(
                 (RadioGroup group, int checkedId) -> {
-                    mReportInfo.setStartTime(HourMinuteUnit.timePrevMinutesUnit(1).toFormatString());
+                    mReportInfo.setStartTime(HourMinuteUnit.timePrevMinutesUnit(5).toFormatString());
                     VisibilityChecker.check(
                             mBinding.customStartTimeLayout,
                             mBinding.startTimeShowCustomRadioButton
@@ -356,7 +356,7 @@ public class ReportActivity extends AppCompatActivity {
     }
 
     private void flushStartTimePicker() {
-        HourMinuteUnit unit = HourMinuteUnit.timePrevMinutesUnit(1);
+        HourMinuteUnit unit = HourMinuteUnit.timePrevMinutesUnit(5);
         mBinding.startTimePicker.setHour(unit.getHourOfDay());
         mBinding.startTimePicker.setMinute(unit.getMinute());
     }
@@ -378,7 +378,7 @@ public class ReportActivity extends AppCompatActivity {
             mReportInfo.setCampus(EnumCampus.LIU_LIN);
         }
         if (StringUtil.isNullOrEmpty(mReportInfo.getStartTime())) {
-            mReportInfo.setStartTime(HourMinuteUnit.timePrevMinutesUnit(1).toFormatString());
+            mReportInfo.setStartTime(HourMinuteUnit.timePrevMinutesUnit(5).toFormatString());
         }
         if (StringUtil.isNullOrEmpty(mReportInfo.getEndTime())) {
             mReportInfo.setEndTime("22:55");
